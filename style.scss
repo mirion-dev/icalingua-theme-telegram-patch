@@ -630,4 +630,57 @@ html[theme=dark] {
             margin-right: initial !important;
         }
     }
+
+    // 弹出提示
+    [role='tooltip'] {
+        background-color: $color-message;
+        border: none;
+        border-radius: 1em;
+        padding: 10px 15px;
+        font-size: 9.5pt;
+        min-width: 0;
+        color: $color-text;
+        box-shadow: 0 0 20px black;
+
+        // 搜索栏头像
+        .el-popover__title {
+            font-size: 9.5pt;
+            font-weight: bold;
+            color: $color-text;
+            margin-bottom: .5em;
+
+            + .popper__arrow {
+                border-color: transparent;
+
+                &::after {
+                    border-right-color: $color-message;
+                }
+            }
+        }
+
+        // 上传文件
+        > button {
+            display: block;
+            width: fit-content !important;
+            padding: 0;
+            font-size: 9.5pt;
+            color: $color-text;
+
+            &:first-child {
+                margin-bottom: 1em;
+
+                + div {
+                    display: none;
+                }
+            }
+
+            + .popper__arrow {
+                border-color: transparent;
+
+                &::after {
+                    border-top-color: $color-message;
+                }
+            }
+        }
+    }
 }
