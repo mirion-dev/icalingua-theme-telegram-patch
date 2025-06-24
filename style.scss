@@ -1,0 +1,617 @@
+@import 'base.css';
+
+$color-room: #17212b;
+$color-room-hover: #202b36;
+$color-room-bubble: #3e546a;
+$color-room-selected: #2b5278;
+$color-room-selected-bubble: #7aa3ca;
+
+$color-chat: #0e1621;
+$color-chat-bubble: #4082bc;
+$color-message: #182533;
+$color-button: #2e70a5;
+
+$color-border: #0a121b;
+$color-search: #242f3d;
+
+$color-icon: #616d77;
+$color-icon-hover: #c3c4c5;
+
+$color-text: white;
+$color-text-sub: #708499;
+$color-text-colored: #6ab3f3;
+
+* {
+    font-family: 'Fira Code', 'Microsoft YaHei' !important;
+}
+
+html[theme=dark] {
+
+    // 滚动条
+    ::-webkit-scrollbar {
+        width: 5px;
+        background-color: #ccc2;
+        border-radius: 1em;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #ddd6 !important;
+        border-radius: 6px;
+
+        &:hover {
+            background-color: #eee8 !important;
+        }
+    }
+
+    // 左侧面板
+    .rooms-panel > .root {
+        border-right: .5px solid $color-border !important;
+
+        // 搜索栏
+        > .head {
+            background-color: $color-room !important;
+            min-height: 54px;
+
+            // 头像
+            .el-avatar {
+                --size: 38px;
+            }
+
+            // 搜索图标
+            .el-input__prefix {
+                display: none;
+            }
+
+            // 取消搜索图标
+            .el-input__suffix .el-input__icon {
+                color: $color-icon;
+
+                &:hover {
+                    color: $color-icon-hover;
+                }
+            }
+
+            // 搜索框
+            .el-input__inner {
+                background-color: $color-search !important;
+                font-size: 9.5pt;
+                height: 35px;
+                border-radius: 35px !important;
+                color: $color-text;
+                padding-left: 20px;
+                padding-right: 32px;
+
+                &:focus::placeholder {
+                    transform: none;
+                }
+
+                &::placeholder {
+                    text-align: left;
+                    color: $color-text-sub !important
+                }
+            }
+
+            // 好友列表
+            .el-icon-user {
+                color: $color-icon;
+                transition: all .2s;
+
+                &:hover {
+                    color: $color-icon-hover;
+                }
+            }
+        }
+
+        // 房间列表
+        > .content {
+            margin-top: 0;
+
+            .root {
+                background-color: $color-room !important;
+                border-right: none !important;
+
+                * {
+                    font-size: 9.5pt !important;
+                }
+
+                &:hover {
+                    background-color: $color-room-hover !important;
+                }
+
+                &.selected {
+                    background-color: $color-room-selected !important;
+
+                    .entry .desc > span {
+                        color: $color-text !important;
+                    }
+                }
+
+                &::after {
+                    display: none;
+                }
+
+                .entry {
+                    height: 43px;
+
+                    // 头像
+                    .el-avatar {
+                        --size: 46px;
+                    }
+
+                    // 最新消息头像
+                    .sub-avatar {
+                        height: 25px !important;
+                        width: 25px !important;
+                    }
+
+                    // 群名
+                    .name {
+                        font-weight: bold;
+                        color: $color-text;
+                    }
+
+                    // 通知图标
+                    .icon {
+                        color: $color-text-sub;
+                        padding-top: .5px;
+                    }
+
+                    // 最新消息时间
+                    .timestamp {
+                        color: $color-text-sub;
+                    }
+
+                    // 最新消息内容
+                    .desc {
+                        color: $color-text-sub;
+
+                        > span {
+                            color: $color-text-colored !important;
+                        }
+                    }
+
+                    // 新消息数量
+                    .el-badge__content {
+                        background-color: $color-room-bubble !important;
+                        color: $color-text !important;
+                        padding: 0 4px;
+                    }
+                }
+            }
+        }
+    }
+
+    // 空房间
+    .vac-room-empty {
+        background-color: $color-chat;
+
+        > div {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 9.5pt;
+            color: $color-text;
+            background-color: $color-message;
+            border-radius: 1em;
+            padding: 2px 10px;
+        }
+    }
+
+    // 信息栏
+    .vac-room-header {
+        height: 54px;
+        border-bottom: .5px solid $color-border;
+
+        .vac-room-wrapper {
+            background-color: $color-room;
+
+            .vac-info-wrapper {
+
+                // 头像
+                .vac-room-avatar {
+                    display: none;
+                }
+
+                // 信息
+                .vac-text-ellipsis {
+                    font-size: 9.5pt;
+                    font-weight: normal;
+
+                    .vac-room-name {
+                        font-weight: bold;
+                        color: $color-text;
+                    }
+
+                    .vac-room-info {
+                        color: $color-text-sub;
+                    }
+                }
+            }
+
+            // 更多选项
+            .vac-room-options {
+                color: $color-icon;
+
+                &:hover {
+                    color: $color-icon-hover;
+                }
+            }
+        }
+    }
+
+    .vac-container-scroll {
+        background-color: $color-chat !important;
+        margin-top: 54px;
+    }
+
+    // 信息卡
+    .vac-card-info {
+        font-weight: bold;
+        font-size: 9.5pt;
+        color: $color-text !important;
+        background-color: $color-message !important;
+        border-radius: 1em;
+        padding: 2px 10px;
+        max-width: fit-content;
+    }
+
+    // 消息卡
+    .vac-messages-container {
+        background-color: $color-chat;
+
+        .vac-message-card {
+            background-color: $color-message !important;
+            border: none !important;
+            border-radius: 1em !important;
+            padding: 5px 10px 3px !important;
+
+            * {
+                font-size: 9.5pt !important;
+            }
+
+            &.vac-message-selected {
+                background-color: $color-button !important;
+
+                .vac-text-username span {
+                    color: $color-text !important;
+                }
+
+                .vac-reply-message {
+                    border-left-color: $color-text !important;
+
+                    .vac-reply-username {
+                        color: $color-text !important;
+                    }
+                }
+
+                .vac-image-tg-container__image img {
+                    filter: brightness(1.25) !important;
+                }
+            }
+
+            // 消息发出者信息
+            .vac-text-username {
+                display: grid !important;
+                grid-template-columns: 1fr auto auto;
+                margin-right: 0 !important;
+
+                // 群昵称
+                span:first-child {
+                    font-weight: bold !important;
+                    filter: saturate(2);
+                }
+
+                // 群身份、群称号
+                span:nth-child(2),
+                span:last-child {
+                    color: $color-text-sub;
+                }
+            }
+
+            // 消息发出时间
+            .vac-text-timestamp {
+                position: initial;
+
+                span {
+                    font-style: normal;
+                    font-size: 8pt !important;
+                    color: $color-text-sub;
+                }
+            }
+
+            &.vac-message-deleted .vac-text-timestamp span {
+                font-style: italic;
+            }
+
+            // 链接和 @
+            a,
+            .vac-text-at {
+                color: $color-text-colored !important;
+            }
+
+            // 回复
+            .vac-reply-message {
+                border-radius: .5em !important;
+                background-color: #fff1 !important;
+                margin-right: auto !important;
+                border-left: 3px solid $color-text-colored !important;
+                padding: 5px 10px 3px !important;
+
+                .vac-reply-username {
+                    font-weight: bold !important;
+                    color: $color-text-colored !important;
+                }
+            }
+        }
+
+        // 纯图片消息
+        .vac-message-container--image .vac-message-card {
+
+            &:not(.vac-message-deleted) {
+                padding: 0 !important;
+
+                .vac-text-username {
+                    display: none !important;
+                }
+
+                .vac-image-tg-container {
+                    margin-right: 0 !important;
+
+                    img {
+                        display: block;
+                        border: none;
+                        width: 100%;
+                    }
+
+                    .vac-image-tg-container__timestamp {
+                        display: none;
+                        left: calc(100% + 4px);
+                        bottom: 1px;
+                        width: min-content;
+                        font-style: normal;
+                        font-size: 8pt !important;
+                        background-color: $color-message;
+                        border-radius: .5em;
+                        opacity: initial !important;
+                    }
+
+                    &.vac-image-tg-container--current .vac-image-tg-container__timestamp {
+                        right: calc(100% + 4px);
+                        left: initial;
+                    }
+                }
+
+                &:hover .vac-image-tg-container__timestamp {
+                    display: block;
+                }
+            }
+
+            &.vac-message-deleted {
+
+                .vac-image-tg-container {
+                    margin-right: 0 !important;
+
+                    .vac-image-tg-container__image {
+                        display: none;
+                    }
+
+                    .vac-image-tg-container__timestamp {
+                        padding: 0 !important;
+                        position: initial !important;
+                        text-align: right;
+                        backdrop-filter: none;
+                        font-size: 8pt !important;
+                        color: $color-text-sub;
+                    }
+                }
+            }
+        }
+    }
+
+    // 直达按钮
+    .vac-icon-last-message,
+    .vac-icon-scroll {
+        background-color: $color-message !important;
+
+        .vac-badge-counter {
+            background-color: $color-chat-bubble;
+            transform: translateX(-50%);
+            left: 50%;
+            top: -11px;
+            text-align: center;
+            border-radius: 1em;
+            padding: 4px;
+            font-size: 8pt;
+        }
+    }
+
+    .vac-icon-last-message #vac-icon-dropdown {
+        fill: $color-text-sub !important;
+    }
+
+    .vac-icon-scroll {
+        bottom: 62px;
+
+        svg {
+            color: $color-text-sub;
+        }
+    }
+
+    // 弹出的消息
+    .el-message--info {
+        background: $color-message;
+        border: .5px solid $color-border;
+        border-radius: 1em;
+        top: 30px !important;
+
+        .el-message__icon {
+            color: $color-text-colored;
+        }
+
+        .el-message__content {
+            color: $color-text;
+        }
+    }
+
+    // 输入面板
+    .vac-room-footer {
+        background-color: $color-room !important;
+        border-top: .5px solid $color-border !important;
+
+        // 回复的消息
+        .vac-reply-container {
+            background-color: $color-room !important;
+            margin-bottom: 0;
+            padding: 5px 10px 0;
+            border-top: .5px solid $color-border;
+
+            // 消息卡
+            .vac-reply-box {
+                background-color: $color-room !important;
+                border-left: none !important;
+                border-radius: .5em !important;
+                padding: 5px 0 3px !important;
+
+                * {
+                    font-size: 9.5pt !important;
+                }
+
+                .vac-reply-username {
+                    font-weight: bold !important;
+                    color: $color-text-colored !important;
+                }
+
+                .vac-reply-content a {
+                    font-weight: normal !important;
+                    color: $color-text-colored;
+                }
+            }
+
+            // 取消回复
+            .vac-icon-reply svg {
+                padding-right: 2px;
+
+                #vac-icon-close-outline {
+                    fill: $color-icon !important;
+                }
+
+                &:hover {
+
+                    #vac-icon-close-outline {
+                        fill: $color-icon-hover !important;
+                    }
+                }
+
+            }
+        }
+
+        // 转发栏
+        .vac-forward-container {
+            background-color: $color-room;
+            padding: 0;
+            width: 100%;
+
+            // 转发按钮
+            .vac-forward-box {
+                padding: 5px 10px 0;
+
+                button {
+                    background-color: $color-button;
+                    border: none;
+                    padding: 10px 15px;
+
+                    i {
+                        color: $color-text;
+                    }
+
+                    span {
+                        font-size: 9.5pt;
+                        font-weight: bold;
+                        color: $color-text;
+                    }
+                }
+            }
+
+            // 取消转发
+            .vac-icon-forward svg {
+                padding-right: 12px;
+                padding-top: 6.5px;
+
+                #vac-icon-close-outline {
+                    fill: $color-icon !important;
+                }
+
+                &:hover {
+
+                    #vac-icon-close-outline {
+                        fill: $color-icon-hover !important;
+                    }
+                }
+            }
+
+            // 转发信息
+            .vac-selected-counter {
+                background-color: transparent;
+                box-shadow: none;
+                font-size: 9.5pt;
+                color: $color-text;
+                bottom: 0;
+                right: 40px;
+            }
+        }
+
+        // 输入栏
+        .vac-box-footer {
+            background-color: $color-room !important;
+            padding: 0 !important;
+            border-top: none !important;
+
+            // 发送文件
+            .el-popover__reference-wrapper svg {
+                transform: scale(-1.2, -1);
+                margin: 0;
+            }
+
+            // 输入框
+            .vac-textarea {
+                background-color: $color-room;
+                font-size: 9.5pt !important;
+                color: $color-text;
+
+                &::placeholder {
+                    font-size: 9.5pt;
+                    color: $color-text-sub !important;
+                }
+            }
+
+            // 发送
+            .vac-send-disabled {
+                display: none;
+            }
+
+            // 图标
+            .vac-icon-textarea {
+                padding-right: 5px;
+
+                svg {
+
+                    #vac-icon-paperclip,
+                    #vac-icon-emoji {
+                        fill: $color-icon !important;
+                    }
+
+                    &:hover {
+
+                        #vac-icon-paperclip,
+                        #vac-icon-emoji {
+                            fill: $color-icon-hover !important;
+                        }
+                    }
+
+                    #vac-icon-send {
+                        fill: $color-text-colored !important;
+                    }
+                }
+            }
+        }
+    }
+}
