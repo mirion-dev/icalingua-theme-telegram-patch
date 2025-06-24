@@ -436,6 +436,37 @@ html[theme=dark] {
         }
     }
 
+    // 拉取历史消息
+    .getting-history {
+        background-color: $color-message !important;
+        border-radius: 1em !important;
+        padding: 5px !important;
+        top: 65px;
+        right: 15px;
+
+        // TODO 图标颜色？
+
+        .pace-activity {
+            margin: 0 6px;
+        }
+
+        > span {
+            font-size: 9.5pt;
+            color: $color-text;
+        }
+
+        > button {
+            background-color: $color-button;
+            border: none;
+            border-radius: 3em;
+            font-size: 9.5pt;
+            font-weight: bold;
+            color: $color-text;
+            padding: 8px;
+            margin-left: 4px;
+        }
+    }
+
     // 弹出的消息
     .el-message--info {
         background: $color-message;
