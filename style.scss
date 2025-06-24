@@ -614,4 +614,20 @@ html[theme=dark] {
             }
         }
     }
+
+    // 转发消息内容
+    #app > .vac-col-messages {
+        background-color: $color-chat !important;
+
+        .vac-text-started {
+            font-size: 9.5pt;
+            font-style: normal;
+            color: $color-text-sub;
+            margin: 1em;
+        }
+
+        .vac-text-username + div {
+            margin-right: initial !important;
+        }
+    }
 }
