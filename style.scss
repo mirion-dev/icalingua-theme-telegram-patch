@@ -19,8 +19,9 @@ $color-icon: #616d77;
 $color-icon-hover: #c3c4c5;
 
 $color-text: white;
-$color-text-sub: #708499;
-$color-text-colored: #6ab3f3;
+$color-text-gray: #708499;
+$color-text-blue: #6ab3f3;
+$color-text-red: #e56d69;
 
 * {
     font-family: 'Fira Code', 'Microsoft YaHei' !important;
@@ -89,7 +90,7 @@ html[theme=dark] .icalingua-theme-holder {
 
                 &::placeholder {
                     text-align: left;
-                    color: $color-text-sub !important
+                    color: $color-text-gray !important
                 }
             }
 
@@ -155,21 +156,21 @@ html[theme=dark] .icalingua-theme-holder {
 
                     // 通知图标
                     .icon {
-                        color: $color-text-sub;
+                        color: $color-text-gray;
                         padding-top: .5px;
                     }
 
                     // 最新消息时间
                     .timestamp {
-                        color: $color-text-sub;
+                        color: $color-text-gray;
                     }
 
                     // 最新消息内容
                     .desc {
-                        color: $color-text-sub;
+                        color: $color-text-gray;
 
                         > span {
-                            color: $color-text-colored !important;
+                            color: $color-text-blue !important;
                         }
                     }
 
@@ -225,7 +226,7 @@ html[theme=dark] .icalingua-theme-holder {
                     }
 
                     .vac-room-info {
-                        color: $color-text-sub;
+                        color: $color-text-gray;
                     }
                 }
             }
@@ -308,7 +309,7 @@ html[theme=dark] .icalingua-theme-holder {
                 // 群身份、群称号
                 span:nth-child(2),
                 span:last-child {
-                    color: $color-text-sub;
+                    color: $color-text-gray;
                 }
             }
 
@@ -319,7 +320,7 @@ html[theme=dark] .icalingua-theme-holder {
                 span {
                     font-style: normal;
                     font-size: 8pt !important;
-                    color: $color-text-sub;
+                    color: $color-text-gray;
                 }
             }
 
@@ -330,7 +331,7 @@ html[theme=dark] .icalingua-theme-holder {
             // 链接和 @
             a,
             .vac-text-at {
-                color: $color-text-colored !important;
+                color: $color-text-blue !important;
             }
 
             // 回复
@@ -338,12 +339,12 @@ html[theme=dark] .icalingua-theme-holder {
                 border-radius: .5em !important;
                 background-color: #fff1 !important;
                 margin-right: auto !important;
-                border-left: 3px solid $color-text-colored !important;
+                border-left: 3px solid $color-text-blue !important;
                 padding: 5px 10px 3px !important;
 
                 .vac-reply-username {
                     font-weight: bold !important;
-                    color: $color-text-colored !important;
+                    color: $color-text-blue !important;
                 }
             }
         }
@@ -405,7 +406,7 @@ html[theme=dark] .icalingua-theme-holder {
                         text-align: right;
                         backdrop-filter: none;
                         font-size: 8pt !important;
-                        color: $color-text-sub;
+                        color: $color-text-gray;
                     }
                 }
             }
@@ -430,14 +431,14 @@ html[theme=dark] .icalingua-theme-holder {
     }
 
     .vac-icon-last-message #vac-icon-dropdown {
-        fill: $color-text-sub !important;
+        fill: $color-text-gray !important;
     }
 
     .vac-icon-scroll {
         bottom: 62px;
 
         svg {
-            color: $color-text-sub;
+            color: $color-text-gray;
         }
     }
 
@@ -452,7 +453,7 @@ html[theme=dark] .icalingua-theme-holder {
 
         .pace-activity {
             margin: 0 6px;
-            border-color: $color-text-colored transparent transparent $color-text-colored;
+            border-color: $color-text-blue transparent transparent $color-text-blue;
         }
 
         > span {
@@ -476,21 +477,29 @@ html[theme=dark] .icalingua-theme-holder {
         }
     }
 
-    // 弹出的消息
-    .el-message--info {
+    // 上侧弹出消息
+    .el-message--info,
+    .el-message--error {
         background: $color-message;
-        border: .5px solid $color-border;
+        border: none;
         border-radius: 1em;
         top: 30px !important;
         box-shadow: 0 0 20px #0008;
+    }
+
+    .el-message--info {
 
         .el-message__icon {
-            color: $color-text-colored;
+            color: $color-text-blue;
         }
 
         .el-message__content {
             color: $color-text;
         }
+    }
+
+    .el-message--error * {
+        color: $color-text-red;
     }
 
     // 输入面板
@@ -518,12 +527,12 @@ html[theme=dark] .icalingua-theme-holder {
 
                 .vac-reply-username {
                     font-weight: bold !important;
-                    color: $color-text-colored !important;
+                    color: $color-text-blue !important;
                 }
 
                 .vac-reply-content a {
                     font-weight: normal !important;
-                    color: $color-text-colored;
+                    color: $color-text-blue;
                 }
             }
 
@@ -624,7 +633,7 @@ html[theme=dark] .icalingua-theme-holder {
 
                 &::placeholder {
                     font-size: 9.5pt;
-                    color: $color-text-sub !important;
+                    color: $color-text-gray !important;
                 }
             }
 
@@ -655,7 +664,7 @@ html[theme=dark] .icalingua-theme-holder {
                     }
 
                     #vac-icon-send {
-                        fill: $color-text-colored !important;
+                        fill: $color-text-blue !important;
                     }
                 }
             }
@@ -683,7 +692,7 @@ html[theme=dark] .icalingua-theme-holder {
             // 无表情
             .empty {
                 font-size: 9.5pt;
-                color: $color-text-sub;
+                color: $color-text-gray;
 
                 button {
                     border: none;
@@ -714,15 +723,15 @@ html[theme=dark] .icalingua-theme-holder {
 
                     a {
                         background-color: transparent !important;
-                        color: $color-text-sub !important;
+                        color: $color-text-gray !important;
                         border-radius: 0;
                         font-size: 9.5pt;
                         font-weight: bold !important;
                         padding-bottom: 10px;
 
                         &.selected {
-                            color: $color-text-colored !important;
-                            border-bottom: 3px solid $color-text-colored;
+                            color: $color-text-blue !important;
+                            border-bottom: 3px solid $color-text-blue;
                         }
                     }
                 }
@@ -754,12 +763,12 @@ html[theme=dark] .icalingua-theme-holder {
                 a {
                     font-size: 9.5pt;
                     font-weight: bold;
-                    color: $color-text-sub;
+                    color: $color-text-gray;
                     transition: color .2s, border-bottom .2s;
 
                     &.selected {
-                        color: $color-text-colored;
-                        border-bottom: 3px solid $color-text-colored;
+                        color: $color-text-blue;
+                        border-bottom: 3px solid $color-text-blue;
                     }
 
                     &:last-child {
@@ -775,7 +784,7 @@ html[theme=dark] .icalingua-theme-holder {
 
                 .subheader {
                     font-size: 9.5pt;
-                    color: $color-text-sub;
+                    color: $color-text-gray;
 
                     &:first-child {
                         margin-top: 0;
@@ -799,18 +808,18 @@ html[theme=dark] .icalingua-theme-holder {
                     filter: none;
 
                     svg {
-                        fill: $color-text-sub;
+                        fill: $color-text-gray;
                     }
 
                     &:not(.active):hover svg {
-                        fill: $color-text-sub;
+                        fill: $color-text-gray;
                     }
 
                     &.active {
-                        border-bottom-color: $color-text-colored !important;
+                        border-bottom-color: $color-text-blue !important;
 
                         svg {
-                            fill: $color-text-colored;
+                            fill: $color-text-blue;
                         }
                     }
                 }
@@ -828,7 +837,7 @@ html[theme=dark] .icalingua-theme-holder {
                     }
 
                     &::placeholder {
-                        color: $color-text-sub;
+                        color: $color-text-gray;
                         transition: transform .2s;
                     }
                 }
@@ -847,7 +856,7 @@ html[theme=dark] .icalingua-theme-holder {
         .vac-text-started {
             font-size: 9.5pt;
             font-style: normal;
-            color: $color-text-sub;
+            color: $color-text-gray;
             margin: 1em;
         }
 
@@ -864,7 +873,7 @@ html[theme=dark] .icalingua-theme-holder {
         padding: 10px 15px;
         font-size: 9.5pt;
         min-width: 0;
-        color: $color-text-sub;
+        color: $color-text-gray;
         box-shadow: 0 0 20px #0008;
 
         // 搜索栏头像
@@ -973,7 +982,7 @@ html[theme=dark] .icalingua-theme-holder {
 
                             &::placeholder {
                                 text-align: left !important;
-                                color: $color-text-sub !important;
+                                color: $color-text-gray !important;
                             }
                         }
 
@@ -1009,13 +1018,13 @@ html[theme=dark] .icalingua-theme-holder {
 
                     .el-tabs__item {
                         font-size: 9.5pt;
-                        color: $color-text-sub;
+                        color: $color-text-gray;
                         font-weight: bold;
                         transition: color .2s, border-bottom .2s;
 
                         &.is-active {
-                            color: $color-text-colored;
-                            border-bottom: 3px solid $color-text-colored;
+                            color: $color-text-blue;
+                            border-bottom: 3px solid $color-text-blue;
                         }
                     }
                 }
@@ -1035,7 +1044,7 @@ html[theme=dark] .icalingua-theme-holder {
 
                     .contact-entry-rawname,
                     .contact-entry-desc {
-                        color: $color-text-sub;
+                        color: $color-text-gray;
                     }
                 }
 
