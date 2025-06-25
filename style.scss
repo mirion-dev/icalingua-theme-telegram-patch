@@ -26,7 +26,8 @@ $color-text-colored: #6ab3f3;
     font-family: 'Fira Code', 'Microsoft YaHei' !important;
 }
 
-html[theme=dark] {
+html[theme=dark] .icalingua-theme-holder {
+    background-color: $color-room !important;
 
     // 滚动条
     ::-webkit-scrollbar {
@@ -83,7 +84,7 @@ html[theme=dark] {
                 padding-right: 32px;
 
                 &:focus::placeholder {
-                    transform: none;
+                    transform: translateX(6px);
                 }
 
                 &::placeholder {
@@ -95,7 +96,7 @@ html[theme=dark] {
             // 好友列表
             .el-icon-user {
                 color: $color-icon;
-                transition: all .2s;
+                transition: color .2s;
 
                 &:hover {
                     color: $color-icon-hover;
@@ -110,6 +111,7 @@ html[theme=dark] {
             .root {
                 background-color: $color-room !important;
                 border-right: none !important;
+                transition: background-color .2s !important;
 
                 * {
                     font-size: 9.5pt !important;
@@ -444,11 +446,11 @@ html[theme=dark] {
         padding: 5px !important;
         top: 65px;
         right: 15px;
-
-        // TODO 图标颜色？
+        box-shadow: 0 0 20px #0008;
 
         .pace-activity {
             margin: 0 6px;
+            border-color: $color-text-colored transparent transparent $color-text-colored;
         }
 
         > span {
@@ -465,6 +467,10 @@ html[theme=dark] {
             color: $color-text;
             padding: 8px;
             margin-left: 4px;
+
+            &:hover {
+                background-color: $color-button-hover;
+            }
         }
     }
 
@@ -474,6 +480,7 @@ html[theme=dark] {
         border: .5px solid $color-border;
         border-radius: 1em;
         top: 30px !important;
+        box-shadow: 0 0 20px #0008;
 
         .el-message__icon {
             color: $color-text-colored;
@@ -550,6 +557,10 @@ html[theme=dark] {
                     background-color: $color-button;
                     border: none;
                     padding: 10px 15px;
+
+                    &:hover {
+                        background-color: $color-button-hover;
+                    }
 
                     i {
                         color: $color-text;
@@ -713,7 +724,6 @@ html[theme=dark] {
                 }
 
                 .opinion {
-                    transition: all .2s;
 
                     &:hover {
                         transform: none;
@@ -723,6 +733,7 @@ html[theme=dark] {
                     .el-icon-more {
                         color: $color-icon;
                         padding-top: 5px;
+                        transition: color .2s;
 
                         &:hover {
                             color: $color-icon-hover !important;
@@ -740,7 +751,7 @@ html[theme=dark] {
                     font-size: 9.5pt;
                     font-weight: bold;
                     color: $color-text-sub;
-                    transition: all .2s;
+                    transition: color .2s, border-bottom .2s;
 
                     &.selected {
                         color: $color-text-colored;
@@ -780,7 +791,7 @@ html[theme=dark] {
             .emoji-panel {
 
                 .category {
-                    transition: color .2s, border-bottom-color .2s;
+                    transition: color .2s, border-bottom .2s;
                     filter: none;
 
                     svg {
@@ -808,8 +819,13 @@ html[theme=dark] {
                     padding: 8px 15px;
                     margin: 8px 0;
 
+                    &:focus::placeholder {
+                        transform: translateX(6px);
+                    }
+
                     &::placeholder {
                         color: $color-text-sub;
+                        transition: transform .2s;
                     }
                 }
 
