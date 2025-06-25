@@ -10,6 +10,7 @@ $color-chat: #0e1621;
 $color-chat-bubble: #4082bc;
 $color-message: #182533;
 $color-button: #2e70a5;
+$color-button-hover: #3476ab;
 
 $color-border: #0a121b;
 $color-search: #242f3d;
@@ -646,6 +647,179 @@ html[theme=dark] {
         }
     }
 
+    // 表情面板
+    .panel-right {
+        background-color: $color-room !important;
+        box-shadow: none !important;
+        border-left: 1px solid $color-border !important;
+
+        @media screen and (max-width: 1200px) {
+            & {
+                bottom: 57px;
+                right: 15px;
+                box-shadow: 0 0 20px #0008 !important;
+                border-left: none !important;
+            }
+        }
+
+        .bg {
+            background-color: transparent !important;
+
+            // 无表情
+            .empty {
+                font-size: 9.5pt;
+                color: $color-text-sub;
+
+                button {
+                    border: none;
+                    border-radius: 1em;
+                    background-color: $color-button;
+                    font-size: 9.5pt;
+                    font-weight: bold;
+                    color: $color-text;
+                    padding: 10px 15px;
+
+                    &:hover {
+                        background-color: $color-button-hover;
+                    }
+                }
+            }
+
+            // 类别
+            .head {
+                background-color: transparent !important;
+                position: initial;
+                border: none;
+                min-height: 38px !important;
+                max-height: 38px !important;
+                padding-bottom: 10px;
+
+                .title {
+                    background-color: transparent !important;
+
+                    a {
+                        background-color: transparent !important;
+                        color: $color-text-sub !important;
+                        border-radius: 0;
+                        font-size: 9.5pt;
+                        font-weight: bold !important;
+                        padding-bottom: 10px;
+
+                        &.selected {
+                            color: $color-text-colored !important;
+                            border-bottom: 3px solid $color-text-colored;
+                        }
+                    }
+                }
+
+                .opinion {
+                    transition: all .2s;
+
+                    &:hover {
+                        transform: none;
+                        opacity: 1;
+                    }
+
+                    .el-icon-more {
+                        color: $color-icon;
+                        padding-top: 5px;
+
+                        &:hover {
+                            color: $color-icon-hover !important;
+                        }
+                    }
+                }
+            }
+
+            // 贴纸
+            .stickers_dir {
+                background-color: $color-room;
+                justify-content: center;
+
+                a {
+                    font-size: 9.5pt;
+                    font-weight: bold;
+                    color: $color-text-sub;
+                    transition: all .2s;
+
+                    &.selected {
+                        color: $color-text-colored;
+                        border-bottom: 3px solid $color-text-colored;
+                    }
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+
+            // 表情包
+            .face-panel,
+            .face-panel + .panel {
+                margin-bottom: 8px;
+
+                .subheader {
+                    font-size: 9.5pt;
+                    color: $color-text-sub;
+
+                    &:first-child {
+                        margin-top: 0;
+                    }
+                }
+
+                .grid {
+                    background-color: $color-room !important;
+
+                    img {
+                        background-color: $color-room !important;
+                    }
+                }
+            }
+
+            // Emoji
+            .emoji-panel {
+
+                .category {
+                    transition: color .2s, border-bottom-color .2s;
+                    filter: none;
+
+                    svg {
+                        fill: $color-text-sub;
+                    }
+
+                    &:not(.active):hover svg {
+                        fill: $color-text-sub;
+                    }
+
+                    &.active {
+                        border-bottom-color: $color-text-colored !important;
+
+                        svg {
+                            fill: $color-text-colored;
+                        }
+                    }
+                }
+
+                .container-search input {
+                    background-color: $color-search !important;
+                    border-radius: 3em;
+                    font-size: 9.5pt;
+                    color: $color-text;
+                    padding: 8px 15px;
+                    margin: 8px 0;
+
+                    &::placeholder {
+                        color: $color-text-sub;
+                    }
+                }
+
+                .grid-emojis {
+                    grid-template-columns: repeat(8, 12.5%) !important;
+                }
+            }
+        }
+    }
+
     // 转发消息内容
     #app > .vac-col-messages {
         background-color: $color-chat !important;
@@ -671,7 +845,7 @@ html[theme=dark] {
         font-size: 9.5pt;
         min-width: 0;
         color: $color-text;
-        box-shadow: 0 0 20px black;
+        box-shadow: 0 0 20px #0008;
 
         // 搜索栏头像
         .el-popover__title {
