@@ -417,6 +417,7 @@ html[theme=dark] .icalingua-theme-holder {
     .vac-icon-last-message,
     .vac-icon-scroll {
         background-color: $color-message !important;
+        box-shadow: 0 0 20px #0008 !important;
 
         .vac-badge-counter {
             background-color: $color-chat-bubble;
