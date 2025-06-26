@@ -137,48 +137,63 @@ html[theme=dark] .icalingua-theme-holder {
                 .entry {
                     height: 43px;
 
-                    // 头像
-                    .el-avatar {
-                        --size: 46px;
-                    }
+                    .left {
 
-                    // 最新消息头像
-                    .sub-avatar {
-                        height: 25px !important;
-                        width: 25px !important;
-                    }
+                        // @
+                        .el-badge__content {
+                            background-color: $color-text-red !important;
+                            color: $color-text !important;
+                            padding: 0 4px;
+                            top: 8px;
+                            right: 15px;
+                        }
 
-                    // 群名
-                    .name {
-                        font-weight: bold;
-                        color: $color-text;
-                    }
+                        // 头像
+                        .el-avatar {
+                            --size: 46px;
+                        }
 
-                    // 通知图标
-                    .icon {
-                        color: $color-text-gray;
-                        padding-top: .5px;
-                    }
-
-                    // 最新消息时间
-                    .timestamp {
-                        color: $color-text-gray;
-                    }
-
-                    // 最新消息内容
-                    .desc {
-                        color: $color-text-gray;
-
-                        > span {
-                            color: $color-text-blue !important;
+                        // 最新消息头像
+                        .sub-avatar {
+                            height: 25px !important;
+                            width: 25px !important;
                         }
                     }
 
-                    // 新消息数量
-                    .el-badge__content {
-                        background-color: $color-room-bubble !important;
-                        color: $color-text !important;
-                        padding: 0 4px;
+                    .right {
+
+                        // 群名
+                        .name {
+                            font-weight: bold;
+                            color: $color-text;
+                        }
+
+                        // 通知图标
+                        .icon {
+                            color: $color-text-gray;
+                            padding-top: .5px;
+                        }
+
+                        // 最新消息时间
+                        .timestamp {
+                            color: $color-text-gray;
+                        }
+
+                        // 最新消息内容
+                        .desc {
+                            color: $color-text-gray;
+
+                            > span {
+                                color: $color-text-blue !important;
+                            }
+                        }
+
+                        // 新消息数量
+                        .el-badge__content {
+                            background-color: $color-room-bubble !important;
+                            color: $color-text !important;
+                            padding: 0 4px;
+                        }
                     }
                 }
             }
