@@ -280,6 +280,14 @@ html[theme=dark] .icalingua-theme-holder {
         padding-left: 0;
         padding-right: 0;
 
+        // 初始消息
+        .vac-text-started {
+            font-size: 9.5pt;
+            font-style: normal;
+            color: $color-text-gray;
+            margin: 1em;
+        }
+
         .vac-message-card {
             background-color: $color-message !important;
             border: none !important;
@@ -307,6 +315,15 @@ html[theme=dark] .icalingua-theme-holder {
 
                 .vac-image-tg-container__image img {
                     filter: brightness(1.25) !important;
+                }
+            }
+
+            // 文件信息
+            .vac-icon-file {
+                margin-left: -5px;
+
+                #vac-icon-document {
+                    fill: $color-text-blue;
                 }
             }
 
@@ -976,13 +993,6 @@ html[theme=dark] .icalingua-theme-holder {
     // 转发消息内容
     #app > .vac-col-messages {
         background-color: $color-chat !important;
-
-        .vac-text-started {
-            font-size: 9.5pt;
-            font-style: normal;
-            color: $color-text-gray;
-            margin: 1em;
-        }
 
         .vac-text-username + div {
             margin-right: initial !important;
