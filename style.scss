@@ -28,7 +28,7 @@ $color-text-green: #96e38a;
     font-family: 'Fira Code', 'Microsoft YaHei' !important;
 }
 
-html[theme=dark] .icalingua-theme-holder {
+html[theme=dark] body {
     background-color: $color-room !important;
 
     // 滚动条
@@ -623,8 +623,8 @@ html[theme=dark] .icalingua-theme-holder {
         background-color: $color-room !important;
         border-top: .5px solid $color-border !important;
 
-        // 回复的消息
-        .vac-reply-container {
+        // 1 回复的消息
+        > .vac-reply-container {
             background-color: $color-room !important;
             margin-bottom: 0;
             padding: 5px 10px 0;
@@ -670,8 +670,8 @@ html[theme=dark] .icalingua-theme-holder {
             }
         }
 
-        // 转发栏
-        .vac-forward-container {
+        // 2 转发栏
+        > .vac-forward-container {
             background-color: $color-room;
             padding: 0;
             width: 100%;
@@ -729,8 +729,16 @@ html[theme=dark] .icalingua-theme-holder {
             }
         }
 
-        // 输入栏
-        .vac-box-footer {
+        // 3 编辑重发
+        > :not([class]):first-child {
+            font-size: 9.5pt;
+            color: $color-text-gray !important;
+
+            // TODO 编辑框
+        }
+
+        // 4 输入栏
+        > .vac-box-footer {
             background-color: $color-room !important;
             padding: 0 !important;
             border-top: none !important;
@@ -772,7 +780,7 @@ html[theme=dark] .icalingua-theme-holder {
             }
 
             // 媒体
-            .vac-media-container{
+            .vac-media-container {
                 margin-top: -6px;
                 margin-left: 25px;
             }
@@ -788,8 +796,6 @@ html[theme=dark] .icalingua-theme-holder {
                     color: $color-text-gray !important;
                 }
             }
-
-            // TODO 编辑重发
 
             // 发送
             .vac-send-disabled {
