@@ -1,5 +1,1 @@
-*
-!.gitignore
-!LICENSE
-!README.md
-!style.scss
+*.css

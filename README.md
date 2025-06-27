@@ -2,6 +2,13 @@
 
 一个基于 [Telegram Theme for Icalingua++ v1.0.2](https://github.com/wibus-wee-ac/icalingua-theme-telegram/releases/tag/v1.0.2) 的补丁，使其与 Telegram 进一步一致。
 
-原有的 `style.css` 需重命名成 `base.css`。
+~~因为我懒得读源码，所以以补丁的形式呈现。~~
 
-~~因为我懒得读源码，所以以补丁的形式呈现，读 `.gitignore` 你甚至会发现我直接把仓库建在了 Icalingua++ 的数据目录中。~~
+## 安装
+
+1. 将原 `style.css` 和 `patch.css` 移至 `styles/`。
+2. 新建 `style.css`，内容为
+    ```css
+    @import 'styles/style.css';
+    @import 'styles/patch.css';
+    ```
