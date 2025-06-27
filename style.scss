@@ -126,7 +126,7 @@ html[theme=dark] .icalingua-theme-holder {
                 &.selected {
                     background-color: $color-room-selected !important;
 
-                    .entry .desc > span {
+                    .entry .right .desc > span {
                         color: $color-text !important;
                     }
                 }
@@ -359,6 +359,11 @@ html[theme=dark] .icalingua-theme-holder {
 
             &.vac-message-deleted .vac-text-timestamp span {
                 font-style: italic;
+            }
+
+            // 图片
+            .vac-image-container img {
+                border-radius: .5em;
             }
 
             // 链接和 @
@@ -764,6 +769,12 @@ html[theme=dark] .icalingua-theme-holder {
             .el-popover__reference-wrapper svg {
                 transform: scale(-1.2, -1);
                 margin: 0;
+            }
+
+            // 媒体
+            .vac-media-container{
+                margin-top: -6px;
+                margin-left: 25px;
             }
 
             // 输入框
