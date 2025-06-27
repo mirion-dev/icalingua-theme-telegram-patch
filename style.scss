@@ -426,6 +426,16 @@ html[theme=dark] .icalingua-theme-holder {
                 }
             }
         }
+
+        // 视频消息
+        .vac-video-container {
+            margin-right: 0 !important;
+
+            video {
+                border-radius: .5em;
+                border: none;
+            }
+        }
     }
 
     // 直达按钮
@@ -517,6 +527,68 @@ html[theme=dark] .icalingua-theme-holder {
     .el-message--error * {
         color: $color-text-red;
     }
+
+    // 通知
+    .el-notification {
+        background-color: $color-message;
+        padding: 10px 15px 7px;
+        border-radius: 1em;
+        box-shadow: 0 0 20px #0008;
+
+        .el-notification__icon::before {
+            color: $color-text-red;
+        }
+
+        .el-notification__group {
+            margin: 0 12px;
+
+            .el-notification__title {
+                font-size: 9.5pt;
+            }
+
+            .el-notification__content {
+                font-size: 9.5pt;
+                color: $color-text-gray !important;
+            }
+
+            .el-icon-close {
+                top: 12px;
+                right: 12px;
+                color: $color-icon;
+                transition: color .2s;
+
+                &:hover {
+                    color: $color-icon-hover;
+                }
+            }
+        }
+    }
+
+    // 进度条
+    .el-notification-progress .el-notification__group {
+        margin: 0;
+
+        .el-notification__content {
+            margin-top: 0;
+
+            .el-progress-bar {
+                margin: 10px 0 7px;
+
+                .el-progress-bar__outer {
+                    background-color: $color-search !important;
+
+                    .el-progress-bar__inner {
+                        background-color: $color-text-blue !important;
+
+                        .el-progress-bar__innerText {
+                            color: $color-text !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 
     // 输入面板
     .vac-room-footer {
@@ -634,6 +706,36 @@ html[theme=dark] .icalingua-theme-holder {
             background-color: $color-room !important;
             padding: 0 !important;
             border-top: none !important;
+
+            // 文件信息
+            .vac-file-container {
+                background-color: $color-room;
+                margin-left: 45px;
+
+                .vac-icon-file-room {
+                    margin-left: 0;
+
+                    #vac-icon-file {
+                        fill: $color-text-blue;
+                    }
+                }
+
+                .vac-file-message-room {
+                    font-size: 9.5pt;
+                    color: $color-text;
+                }
+
+                .vac-icon-remove {
+                    #vac-icon-close {
+                        fill: $color-icon;
+                        transition: fill .2s;
+                    }
+
+                    &:hover #vac-icon-close {
+                        fill: $color-icon-hover;
+                    }
+                }
+            }
 
             // 发送文件
             .el-popover__reference-wrapper svg {
