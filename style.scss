@@ -22,6 +22,7 @@ $color-text: white;
 $color-text-gray: #708499;
 $color-text-blue: #6ab3f3;
 $color-text-red: #e56d69;
+$color-text-green: #96e38a;
 
 * {
     font-family: 'Fira Code', 'Microsoft YaHei' !important;
@@ -505,6 +506,7 @@ html[theme=dark] .icalingua-theme-holder {
 
     // 上侧弹出消息
     .el-message--info,
+    .el-message--success,
     .el-message--error {
         background: $color-message;
         border: none;
@@ -522,6 +524,10 @@ html[theme=dark] .icalingua-theme-holder {
         .el-message__content {
             color: $color-text;
         }
+    }
+
+    .el-message--success * {
+        color: $color-text-green;
     }
 
     .el-message--error * {
@@ -1150,6 +1156,7 @@ html[theme=dark] .icalingua-theme-holder {
                 // 好友列表、群列表
                 #pane-groups,
                 #pane-friends {
+
                     .el-avatar {
                         height: 40px !important;
                         width: 40px !important;
