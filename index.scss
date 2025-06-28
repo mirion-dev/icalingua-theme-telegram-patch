@@ -1,0 +1,16 @@
+@use 'sass:meta';
+
+html[theme='dark'] {
+
+    @include meta.load-css('basic');
+    @include meta.load-css('toast');
+
+    @include meta.load-css('room');
+    @include meta.load-css('contact');
+
+    @include meta.load-css('info');
+    @include meta.load-css('conversation');
+    @include meta.load-css('input');
+    @include meta.load-css('emoji');
+
+}

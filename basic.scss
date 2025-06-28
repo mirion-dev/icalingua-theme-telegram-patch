@@ -1,0 +1,76 @@
+@use 'color' as *;
+@use 'mixin' as *;
+
+* {
+    font-family: $font-family;
+}
+
+body {
+    background-color: $light;
+}
+
+// 滚动条
+::-webkit-scrollbar {
+    background-color: rgba(white, .1);
+    border-radius: $box-radius-full;
+
+    &:hover {
+        background-color: rgba(white, .15);
+    }
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(white, .2) !important;
+}
+
+// 弹出框
+[role='tooltip'] {
+    @include box($shadow: $box-shadow);
+    @include text($text-dark);
+    min-width: 0;
+
+    > .popper__arrow {
+        border-color: transparent;
+    }
+
+    // 搜索栏头像
+    &:has(> .el-popover__title) {
+        padding: $box-padding-alt;
+
+        > .el-popover__title {
+            color: $text;
+            font-weight: bold;
+            margin-bottom: .5em;
+        }
+
+        > .popper__arrow::after {
+            border-right-color: $msg;
+        }
+    }
+
+    // 上传文件
+    &:has(> button) {
+
+        > button {
+            display: block;
+            padding: 0;
+            @include text;
+
+            &:hover {
+                color: $theme;
+            }
+
+            &:first-of-type {
+                margin-bottom: 1em;
+
+                + div {
+                    display: none;
+                }
+            }
+        }
+
+        > .popper__arrow::after {
+            border-top-color: $msg;
+        }
+    }
+}

@@ -1,0 +1,220 @@
+@use 'color' as *;
+@use 'mixin' as *;
+
+.vac-room-footer {
+    border-top: $border;
+
+    // 要回复的消息
+    > .vac-reply-container {
+        background-color: $light;
+        padding: 8px 12px;
+
+        // 消息卡
+        > .vac-reply-box {
+            @include box($box-padding-small-alt, $box-radius-small, $light);
+            border-radius: 0;
+            padding: 0;
+
+            * {
+                @include text;
+            }
+
+            > .vac-image-reply {
+                width: 33px;
+                height: 33px;
+            }
+
+            .vac-reply-username {
+                margin-bottom: 0;
+                font-weight: bold;
+                color: $theme;
+            }
+
+            .vac-reply-content a {
+                color: $theme;
+
+                * {
+                    color: $theme;
+                }
+            }
+        }
+
+        // 取消回复
+        .vac-svg-button {
+            @include svg-icon('#vac-icon-close-outline');
+            margin-right: 7px;
+        }
+    }
+
+    // 转发栏
+    > .vac-forward-container {
+        background-color: $light;
+        padding: 0;
+        width: 100%;
+        height: 54px;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        // 转发按钮
+        > .vac-forward-box > button {
+            @include button($box-padding, $box-radius-small);
+        }
+
+        // 取消转发
+        > .vac-icon-forward {
+            position: relative;
+            margin-right: 10px;
+
+            > .vac-svg-button {
+                @include button($box-padding, $box-radius-small);
+                background-color: transparent;
+                transition: background-color;
+
+                &:hover {
+                    background-color: rgba($theme, .1);
+                }
+
+                #vac-icon-close-outline {
+                    display: none;
+                }
+            }
+
+            &::after {
+                content: '取消';
+                @include text($theme, $weight: bold);
+                white-space: nowrap;
+                pointer-events: none;
+
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        // 转发数量
+        .vac-selected-counter {
+            @include text;
+            background-color: transparent;
+            top: 19.5px;
+            right: 60px;
+        }
+    }
+
+    // 编辑重发
+    > :not([class]) {
+        @include text($text-dark !important);
+        background-color: $light;
+        padding-top: 5px !important;
+    }
+
+    > .vac-reply-container + :not([class]) {
+        padding-top: 0 !important;
+    }
+
+    // 输入栏
+    > .vac-box-footer {
+        background-color: $light;
+        padding: 0;
+
+        // 输入框
+        > .vac-textarea {
+            @include text;
+            background-color: $light;
+            margin-left: 30px;
+
+            &::placeholder {
+                color: $text-dark;
+                transition: padding-left .2s;
+            }
+
+            &:focus::placeholder {
+                padding-left: 6px;
+            }
+
+            // 编辑重发
+            &.vac-textarea-outline {
+                border: none;
+                box-shadow: none;
+            }
+        }
+
+        // 文件
+        > .vac-file-container {
+            background-color: transparent;
+            margin-left: 40px;
+
+            > .vac-icon-file-room {
+                margin-left: 0;
+
+                #vac-icon-file {
+                    fill: $base;
+                }
+            }
+
+            > .vac-file-message-room {
+                @include text;
+            }
+
+            > .vac-icon-remove {
+                @include svg-icon('#vac-icon-close');
+            }
+        }
+
+        // 媒体
+        > .vac-media-container {
+            margin: -6px 0 0 24px;
+
+            > .vac-svg-button {
+                @include svg-icon('#vac-icon-close-image');
+            }
+        }
+
+        // 按钮
+        > .vac-icon-textarea {
+            margin: 0;
+            padding: 0 5px 11px 0;
+
+            // 无法发送
+            > .vac-send-disabled {
+                display: none;
+            }
+
+            .vac-svg-button {
+                opacity: 1;
+
+                // 文件
+                &:has(#vac-icon-paperclip) {
+                    @include svg-icon('#vac-icon-paperclip');
+                    transform: rotate(-135deg) scaleX(1.25);
+                    position: absolute;
+                    left: 10px;
+                    bottom: 11px;
+
+                    > svg {
+                        margin: 0;
+                    }
+                }
+
+                // 退出编辑重发
+                &:has(#vac-icon-close-outline) {
+                    @include svg-icon('#vac-icon-close-outline');
+                }
+
+                // 表情
+                &:has(#vac-icon-emoji) {
+                    @include svg-icon('#vac-icon-emoji');
+                }
+
+                // 发送
+                &:has(#vac-icon-send) {
+                    @include svg-icon('#vac-icon-send', $base, $base);
+                }
+            }
+        }
+    }
+}
+
+// TODO Ctrl + E, @ 面板

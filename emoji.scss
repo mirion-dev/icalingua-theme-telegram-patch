@@ -1,0 +1,174 @@
+@use 'color' as *;
+@use 'mixin' as *;
+
+.panel-right {
+    padding: 0;
+    border-left: $border;
+    background-color: $light;
+
+    @media screen and (max-width: 1200px) {
+        bottom: 58px;
+        right: 15px;
+        box-shadow: $box-shadow;
+        border-left: none;
+
+        > .bg {
+            border-radius: $box-radius;
+
+            > .head {
+                border-radius: $box-radius;
+            }
+        }
+    }
+
+    > .bg {
+        background-color: $light;
+
+        // 无表情
+        .empty {
+            @include text($text-dark);
+
+            > button {
+                @include button;
+            }
+        }
+
+        // 类别
+        > .head {
+            background-color: $light;
+            min-height: 40px;
+            max-height: 40px;
+            padding-bottom: 10px;
+
+            > .title {
+                text-align: center;
+
+                > a {
+                    @include tab;
+                }
+            }
+
+            .opinion {
+                margin-top: 5px;
+
+                &:hover {
+                    transform: none;
+                    opacity: 1;
+                }
+
+                > .el-icon-more {
+                    @include icon;
+                    transform: rotate(90deg) scale(1.1);
+                }
+            }
+        }
+
+        // 贴纸
+        > .stickers_dir {
+            background-color: $light;
+            justify-content: center;
+
+            a {
+                @include tab;
+            }
+        }
+
+        // 表情包
+        > .face-panel,
+        > .face-panel + .panel {
+            margin-bottom: 8px;
+            padding: 0 8px;
+
+            > .subheader {
+                @include text($text-dark, $weight: bold);
+                margin-left: 0;
+
+                &:first-child {
+                    margin-top: 0;
+                }
+            }
+
+            > .grid {
+                gap: 8px;
+                margin: 0;
+
+                img {
+                    background-color: $light;
+                }
+            }
+
+            &::-webkit-scrollbar {
+                width: 3.5px;
+            }
+        }
+
+        > .face-panel > .grid {
+            grid-template-columns: repeat(9, 1fr);
+        }
+
+        > .face-panel + .panel > .grid {
+            grid-template-columns: repeat(5, 1fr);
+        }
+
+        // Emoji
+        > .emoji-panel {
+            margin-bottom: 8px;
+
+            .category {
+                filter: none;
+                transition: color .2s, border-bottom .2s;
+
+                svg {
+                    fill: $text-dark;
+                }
+
+                &.active {
+                    border-bottom-color: $theme;
+
+                    svg {
+                        fill: $theme;
+                    }
+                }
+            }
+
+            .container-search {
+                margin: 0;
+                padding: 8px;
+
+                > input {
+                    @include box(0 32px 0 20px, $box-radius-full, $search);
+                    @include text;
+                    height: 33px;
+
+                    &::placeholder {
+                        color: $text-dark;
+                        transition: padding-left .2s;
+                    }
+
+                    &:focus::placeholder {
+                        padding-left: 6px;
+                    }
+                }
+            }
+
+            .container-emoji {
+                padding: 0 8px;
+
+                > .grid-emojis {
+                    grid-template-columns: repeat(9, 1fr) !important;
+                    margin: 0;
+
+                    > .emoji {
+                        font-size: 22px !important;
+                        height: auto !important;
+                        width: auto !important;
+                    }
+                }
+
+                &::-webkit-scrollbar {
+                    width: 3.5px !important;
+                }
+            }
+        }
+    }
+}

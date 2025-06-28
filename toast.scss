@@ -1,0 +1,141 @@
+@use 'color' as *;
+@use 'mixin' as *;
+
+// 上方通知
+@each $type, $color in ('info': $info, 'success': $success, 'error': $error) {
+    .el-message--#{$type} {
+        @include box(12px 15px, $shadow: $box-shadow);
+        top: 50px;
+
+        > .el-message__icon {
+            color: $color;
+        }
+
+        > .el-message__content {
+            @include text($color);
+        }
+    }
+}
+
+// 拉取历史消息
+.getting-history {
+    @include box(5px, $shadow: $box-shadow);
+    top: 65px;
+    right: 15px;
+
+    > .pace-activity {
+        margin: 0 6px;
+        border-color: $theme transparent transparent $theme;
+    }
+
+    > span {
+        @include text;
+    }
+
+    > button {
+        @include button($box-padding-small);
+        padding: 8px;
+        margin-left: 4px;
+    }
+}
+
+// 文件上传失败
+.el-notification {
+    @include box;
+
+    > .el-notification__icon::before {
+        color: $error;
+    }
+
+    > .el-notification__group {
+        margin: 0 12px;
+
+        > .el-notification__title {
+            @include text($weight: bold);
+        }
+
+        > .el-notification__content {
+            @include text($text-dark);
+        }
+
+        > .el-icon-close {
+            @include icon;
+            transform: scale(1.2);
+            top: 12px;
+            right: 12px;
+        }
+    }
+}
+
+// 文件上传进度条
+.el-notification-progress {
+    top: 15px !important;
+    right: 15px;
+
+    > .el-notification__group {
+        margin: 0;
+
+        > .el-notification__content {
+            margin: 0;
+
+            > div {
+                @include text($text !important);
+
+                .el-progress-bar {
+                    margin: 5px 0 7px;
+
+                    > .el-progress-bar__outer {
+                        background-color: $search !important;
+                        height: 15px !important;
+
+                        > .el-progress-bar__inner {
+                            background-color: $theme;
+
+                            > .el-progress-bar__innerText {
+                                @include text($search !important, $size: $font-size-small);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.vac-card-window > .pace-activity {
+    right: 15px;
+    bottom: 58px;
+    border-color: $theme transparent transparent $theme;
+}
+
+// 网络不通畅
+[aria-label='You are offline'] {
+    @include box($bg-color: $light, $shadow: $box-shadow);
+    margin: 50vh auto 0 !important;
+    transform: translateY(-50%);
+
+    > .el-dialog__header,
+    > .el-dialog__body,
+    > .el-dialog__footer {
+        background-color: $light;
+        padding: 0;
+    }
+
+    > .el-dialog__title {
+        @include text($weight: bold);
+    }
+
+    > .el-dialog__body {
+        @include text($text-dark);
+        padding: 5px 0;
+    }
+
+    > .el-dialog__footer button {
+        @include button;
+
+        &.is-loading {
+            background-color: $button-hover;
+        }
+    }
+
+}

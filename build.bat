@@ -1,0 +1,1 @@
+sass --no-source-map index.scss %APPDATA%/icalingua/style.css

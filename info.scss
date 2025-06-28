@@ -1,0 +1,43 @@
+@use 'color' as *;
+@use 'mixin' as *;
+
+.vac-room-header {
+    height: 54px;
+    border-bottom: $border;
+
+    .vac-room-wrapper {
+        background-color: $light;
+
+        // 头像
+        .vac-room-avatar {
+            display: none;
+        }
+
+        // 信息
+        .vac-text-ellipsis {
+            @include text;
+
+            .vac-room-name {
+                font-weight: bold;
+            }
+
+            .vac-room-info {
+                color: $text-dark;
+            }
+        }
+
+        // 更多选项
+        .vac-room-options {
+            @include icon;
+            transform: scale(1.2) rotate(90deg);
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.vac-container-scroll {
+    margin-top: 54px;
+}

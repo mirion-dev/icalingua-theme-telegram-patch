@@ -1,0 +1,347 @@
+@use 'color' as *;
+@use 'mixin' as *;
+
+// 空房间
+.vac-room-empty {
+    background-color: $dark;
+
+    > div {
+        @include info-box;
+    }
+}
+
+.vac-container-scroll {
+    @include auto-hide-scrollbar;
+    background-color: $dark;
+
+    .vac-mouse-select-area:not([style]) {
+        display: none;
+    }
+
+    // 起始消息
+    .vac-text-started {
+        @include text($text-dark);
+        margin: 2em 0;
+    }
+
+    // 信息卡
+    .vac-card-info {
+        @include info-box;
+    }
+
+    // 消息卡
+    .vac-message-box {
+
+        // 头像
+        .el-avatar {
+            width: 32px;
+            height: 32px;
+        }
+
+        .vac-message-card {
+            @include box($box-padding-small-alt);
+
+            * {
+                @include text;
+            }
+
+            // 发出人信息
+            > .vac-text-username > span {
+
+                // 群昵称
+                &:first-child {
+                    font-weight: bold;
+                    filter: saturate(2);
+                }
+
+                // 群身份、群称号
+                &:nth-child(2),
+                &:last-child {
+                    color: $text-dark;
+                }
+            }
+
+            // 消息发出时间
+            > .vac-text-timestamp > span {
+                @include text($text-dark, $size: $font-size-small);
+            }
+
+            // 链接、@、转发
+            a {
+                text-decoration: none;
+                color: $theme;
+
+                * {
+                    color: $theme;
+                }
+            }
+
+            // 文件
+            > .vac-file-message {
+                display: inline-block;
+                vertical-align: middle;
+                margin: 0;
+
+                > .vac-icon-file {
+                    @include svg-icon('#vac-icon-document', $base, $theme);
+
+                    > svg {
+                        margin: 0;
+                    }
+                }
+
+                + div {
+                    display: inline-block;
+                }
+            }
+
+            // 图片
+            .vac-message-image-mod {
+                border-radius: $box-radius-small;
+                background-color: unset !important;
+
+                .el-icon-picture-outline {
+                    transform: scale(1.8);
+                    color: $text-dark;
+                }
+            }
+
+            // 视频
+            > .vac-video-container video {
+                border-radius: $box-radius-small;
+            }
+
+            // 回复
+            > .vac-reply-message {
+                @include box($box-padding-small-alt, $box-radius-small, #fff1);
+                border-left: 3px solid $theme;
+                margin: 2px 0 5px;
+
+                > .vac-reply-username {
+                    font-weight: bold;
+                    color: $theme;
+
+                    > div {
+
+                        > svg {
+                            stroke: $icon !important;
+                        }
+
+                        &:hover > svg {
+                            stroke: $icon-hover !important;
+                        }
+                    }
+                }
+
+                .image-slot {
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    > .el-icon-picture-outline {
+                        color: $text-dark;
+                    }
+                }
+            }
+
+            $image-only: ':has(> .vac-image-tg-container)';
+            $own: '.vac-message-current';
+            $hidden: '.vac-message-deleted';
+            $selected: '.vac-message-selected';
+
+            &#{$image-only} {
+                padding: 0;
+
+                > .vac-text-username,
+                > .vac-image-container {
+                    display: none !important;
+                }
+
+                > .vac-image-tg-container {
+
+                    img {
+                        border-radius: $box-radius;
+                        display: block;
+                        width: 100%;
+                    }
+
+                    > .vac-image-tg-container__timestamp {
+                        @include box(3px 7px, $box-radius-small);
+                        @include text($size: $font-size-small);
+                        display: none;
+                        position: absolute;
+                        left: calc(100% - 4px);
+                        bottom: 3px;
+                    }
+
+                    &:hover > .vac-image-tg-container__timestamp {
+                        display: block;
+                    }
+                }
+            }
+
+            &#{$own} {
+                background-color: $msg-own !important;
+
+                > .vac-text-timestamp > span {
+                    color: $text-dark-own;
+                }
+            }
+
+            &#{$hidden} {
+                background-color: $msg !important;
+                filter: brightness(.7);
+
+                * {
+                    font-style: italic;
+                    color: $text-dark;
+                }
+
+                > .vac-text-username > span:first-child {
+                    filter: saturate(1.5);
+                }
+
+                #vac-icon-hide,
+                #vac-icon-deleted {
+                    fill: $text-dark;
+                }
+            }
+
+            &#{$selected} {
+                background-color: $msg-selected !important;
+
+                * {
+                    color: $text !important;
+                }
+
+                .vac-reply-username svg {
+                    display: none;
+                }
+
+            }
+
+            &#{$image-only + $own} {
+
+                .vac-image-tg-container__timestamp {
+                    left: unset;
+                    right: calc(100% - 4px);
+                }
+            }
+
+            &#{$image-only + $hidden} {
+                padding: $box-padding-small-alt;
+
+                .vac-image-tg-container__image {
+                    display: none;
+                }
+
+                .vac-image-tg-container__timestamp {
+                    @include text($text-dark-own, $size: $font-size-small);
+                    background-color: transparent;
+                    display: block;
+                    position: unset;
+                    text-align: right;
+                    padding: 0;
+                }
+            }
+
+            &#{$image-only + $selected} {
+
+                > .vac-image-tg-container {
+                    position: relative;
+
+                    > .vac-image-tg-container__image::after {
+                        content: '';
+                        pointer-events: none;
+
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+
+                        position: absolute;
+                        top: 0;
+
+                        background-color: $msg-selected;
+                        border-radius: $box-radius;
+                        opacity: .5;
+                    }
+
+                    > .vac-image-tg-container__timestamp {
+                        background-color: $msg-selected;
+                        left: calc(100% + 6px);
+                        bottom: 1px;
+                    }
+                }
+            }
+
+            &#{$own + $hidden} {
+                background-color: $msg-own !important;
+
+                * {
+                    color: $text-dark-own;
+                }
+
+                #vac-icon-hide,
+                #vac-icon-deleted {
+                    fill: $text-dark-own;
+                }
+            }
+
+            &#{$own + $selected} {
+                background-color: $msg-selected !important;
+                filter: none;
+            }
+
+            &#{$hidden + $selected} {
+
+                #vac-icon-hide,
+                #vac-icon-deleted {
+                    fill: $text;
+                }
+            }
+
+            &#{$image-only + $own + $selected} {
+
+                .vac-image-tg-container__timestamp {
+                    left: unset;
+                    right: calc(100% + 6px);
+                }
+            }
+        }
+    }
+}
+
+// 直达按钮
+.vac-icon-last-message,
+.vac-icon-scroll {
+    background-color: $msg;
+    box-shadow: $box-shadow;
+    right: 15px;
+
+    > .vac-badge-counter {
+        background-color: $toast-bubble;
+        @include text;
+        border-radius: $box-radius;
+        padding: 4px;
+        left: 50%;
+        top: -11px;
+        transform: translateX(-50%);
+    }
+}
+
+.vac-icon-last-message #vac-icon-dropdown {
+    fill: $icon-hover;
+}
+
+.vac-icon-scroll {
+    bottom: 58px;
+
+    > svg {
+        transform: scale(1.25);
+    }
+
+    #vac-icon-dropdown-scroll {
+        fill: $icon-hover;
+    }
+}

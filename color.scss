@@ -1,0 +1,40 @@
+@use 'sass:color';
+
+$base: #5288c1;
+
+@function adjust($h, $s, $l) {
+    @return color.adjust($base, $hue: $h, $saturation: $s, $lightness: $l);
+}
+
+$light: adjust(-1deg, -17%, -40%);
+$dark: adjust(4deg, -5%, -45%);
+$theme: adjust(-3deg, 40%, 20%);
+
+$search: adjust(3deg, -20%, -30%);
+$border: adjust(1deg, -1%, -45%);
+
+$icon: adjust(-2deg, -40%, -7%);
+$icon-hover: adjust(-.5deg, -45%, 20%);
+
+$room-hover: adjust(-.5deg, -20%, -35%);
+$room-bubble: adjust(-.5deg, -20%, -20%);
+$room-selected: adjust(-2deg, 0%, -20%);
+$room-selected-bubble: adjust(-2deg, -4%, 10%);
+
+$msg: adjust(.5deg, -10%, -35%);
+$msg-selected: adjust(-4.5deg, 10%, -10%);
+$msg-own: adjust(-2deg, 0%, -20%);
+
+$toast-bubble: adjust(-3deg, 2%, -5%);
+
+$button: adjust(-3deg, 8%, -10%);
+$button-hover: adjust(-5deg, 6%, -8%);
+
+$text: white;
+$text-dark: adjust(-2deg, -30%, -5%);
+$text-dark-own: adjust(-1deg, 2%, 12%);
+
+$info: #74b9ff;
+$success: #78e08f;
+$warning: #f6e58d;
+$error: #ff7979;

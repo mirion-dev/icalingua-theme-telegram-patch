@@ -1,0 +1,96 @@
+@use 'color' as *;
+
+$border: .5px solid $border;
+
+$box-padding: 10px 12px;
+$box-padding-small: 5px 7px;
+$box-padding-alt: 10px 12px 7px;
+$box-padding-small-alt: 5px 7px 3px;
+
+$box-radius: 1em;
+$box-radius-small: .5em;
+$box-radius-full: 5em;
+
+$box-shadow: 0 0 20px #0008;
+
+$font-size: 9.5pt;
+$font-size-small: 8pt;
+$font-size-big: 12pt;
+
+$font-family: 'Fira Code', 'Microsoft YaHei';
+
+@mixin box($padding: $box-padding, $radius: $box-radius, $bg-color: $msg, $shadow: none) {
+    padding: $padding;
+    border: none;
+    border-radius: $radius;
+    background-color: $bg-color;
+    box-shadow: $shadow;
+}
+
+@mixin text($color: $text, $style: normal, $weight: normal, $size: $font-size) {
+    color: $color;
+    font-style: $style;
+    font-weight: $weight;
+    font-size: $size;
+}
+
+@mixin button($padding: $box-padding, $radius: $box-radius-full) {
+    @include box($padding, $radius, $button);
+    @include text($weight: bold);
+
+    &:hover {
+        background-color: $button-hover;
+    }
+}
+
+@mixin info-box {
+    @include box(2px 10px);
+    @include text($weight: bold);
+    width: fit-content;
+}
+
+@mixin icon {
+    color: $icon;
+    transition: color;
+
+    &:hover {
+        color: $icon-hover;
+    }
+}
+
+@mixin svg-icon($element, $fill: $icon, $fill-hover: $icon-hover) {
+    transform: none;
+    transition: none;
+
+    #{$element} {
+        fill: $fill;
+    }
+
+    &:hover #{$element} {
+        fill: $fill-hover;
+    }
+}
+
+@mixin auto-hide-scrollbar {
+    overflow-y: overlay;
+
+    &:not(:hover)::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+@mixin tab($selected: '.selected') {
+    @include text($text-dark, $weight: bold);
+    padding-bottom: 10px;
+    margin-right: 15px;
+    transition: color .2s, border-bottom .2s;
+
+    &#{$selected} {
+        color: $theme;
+        border-bottom: 3px solid $theme;
+    }
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
