@@ -323,7 +323,7 @@
         background-color: $toast-bubble;
         @include text;
         border-radius: $box-radius;
-        padding: 4px;
+        padding: 3px 4px;
         left: 50%;
         top: -11px;
         transform: translateX(-50%);
