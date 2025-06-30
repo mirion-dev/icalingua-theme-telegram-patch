@@ -1,6 +1,35 @@
 @use 'sass:color';
 
-$base: #5288c1;
+// 来自 Typst
+$typ-gray: #aaaaaa; // 太亮
+$typ-silver: #dddddd; // 太亮
+$typ-navy: #001f3f; // 太暗
+$typ-blue: #0074d9; // 太暗
+$typ-aqua: #7fdbff; // 太亮
+$typ-teal: #39cccc;
+$typ-eastern: #239dad; // 太暗
+$typ-purple: #b10dc9; // 太暗
+$typ-fuchsia: #f012be;
+$typ-maroon: #85144b; // 太暗
+$typ-red: #ff4136; // 太亮
+$typ-orange: #ff851b;
+$typ-yellow: #ffdc00;
+$typ-olive: #3d9970; // 太暗
+$typ-green: #2ecc40;
+$typ-lime: #01fe70;
+
+// 来自 Telegram
+$tg-gray: #697b97;
+$tg-blue: #5288c1;
+$tg-aqua: #58bfe8; // 太亮
+$tg-purple: #917bbd;
+$tg-maroon: #aa6084;
+$tg-red: #ab5149;
+$tg-orange: #a46d3c; // 太暗
+$tg-yellow: #9b834b; // 太暗
+$tg-green: #466f42; // 太暗
+
+$base: $tg-blue;
 
 @function adjust($h, $s, $l) {
     @return color.adjust($base, $hue: $h, $saturation: $s, $lightness: $l);
