@@ -313,6 +313,7 @@
 }
 
 // 直达按钮
+.vac-icon-last-at-message,
 .vac-icon-last-message,
 .vac-icon-scroll {
     background-color: $msg;
@@ -330,8 +331,16 @@
     }
 }
 
-.vac-icon-last-message #vac-icon-dropdown {
-    fill: $icon-hover;
+.vac-icon-last-at-message > .vac-badge-counter {
+    background-color: $error;
+}
+
+.vac-icon-last-at-message,
+.vac-icon-last-message {
+
+    #vac-icon-dropdown {
+        fill: $icon-hover;
+    }
 }
 
 .vac-icon-scroll {
