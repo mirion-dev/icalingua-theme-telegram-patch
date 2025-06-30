@@ -38,8 +38,7 @@
         padding: $box-padding-alt;
 
         > .el-popover__title {
-            color: $text;
-            font-weight: bold;
+            @include text($weight: bold);
             margin-bottom: .5em;
         }
 
