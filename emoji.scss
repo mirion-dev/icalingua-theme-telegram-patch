@@ -137,8 +137,7 @@
 
                 > input {
                     @include box(0 32px 0 20px, $box-radius-full, $search);
-                    @include text;
-                    @include placeholder;
+                    @include input;
                     height: 33px;
                 }
             }

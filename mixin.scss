@@ -95,7 +95,14 @@ $font-family: 'Fira Code', 'Microsoft YaHei';
     }
 }
 
-@mixin placeholder {
+@mixin input {
+    @include text;
+
+    &::selection {
+        color: $text;
+        background-color: $text-selected;
+    }
+
     &::placeholder {
         color: $text-dark;
         transition: color .2s;
