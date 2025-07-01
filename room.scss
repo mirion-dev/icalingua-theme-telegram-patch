@@ -153,3 +153,23 @@
         }
     }
 }
+
+// 头像弹出框
+[role='tooltip']:has(> .el-popover__title) {
+    @include box($box-padding, $bg-color: $light, $shadow: $box-shadow);
+    @include text($text-dark);
+    min-width: 0;
+
+    > .el-popover__title {
+        @include text;
+        margin-bottom: .5em;
+    }
+
+    > .popper__arrow {
+        border-color: transparent;
+
+        &::after {
+            border-right-color: $light;
+        }
+    }
+}

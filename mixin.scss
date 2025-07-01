@@ -98,11 +98,6 @@ $font-size-big: 12pt;
 @mixin input {
     @include text;
 
-    &::selection {
-        color: $text;
-        background-color: $text-selected;
-    }
-
     &::placeholder {
         color: $text-dark;
         transition: color .2s;

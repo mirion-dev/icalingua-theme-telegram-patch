@@ -210,3 +210,45 @@
         }
     }
 }
+
+// 上传文件弹出框
+[role='tooltip']:has(> button) {
+    @include box(5px 0, $bg-color: $light, $shadow: $box-shadow);
+    min-width: 0;
+
+    > :not([class]) {
+        display: none;
+    }
+
+    > button {
+        @include text;
+        display: block;
+        border: none;
+        padding: 10px 20px;
+
+        &:hover {
+            background-color: $room-hover;
+        }
+
+        .el-icon-picture-outline,
+        .el-icon-paperclip {
+            margin-right: 10px;
+        }
+
+        .el-icon-picture-outline {
+            transform: scale(1.5);
+        }
+
+        .el-icon-paperclip {
+            transform: rotate(-90deg) scale(-1.5, 1.5);
+        }
+    }
+
+    > .popper__arrow {
+        border-color: transparent;
+
+        &::after {
+            border-top-color: $light;
+        }
+    }
+}
