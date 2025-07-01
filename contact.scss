@@ -148,7 +148,11 @@
                     background-color: $light;
                     @include text($weight: bold);
                     height: 35px;
-                    padding: 0 15px;
+                    padding: 0 18px;
+
+                    > .el-collapse-item__arrow {
+                        margin-right: 0;
+                    }
                 }
 
                 // 好友/群
