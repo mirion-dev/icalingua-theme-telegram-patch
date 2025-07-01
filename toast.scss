@@ -4,7 +4,7 @@
 // 上方通知
 @each $type, $color in ('info': $info, 'success': $success, 'error': $error) {
     .el-message--#{$type} {
-        @include box(12px 15px, $shadow: $box-shadow);
+        @include box(12px 15px, $shadow: $shadow);
         top: 50px;
 
         > .el-message__icon {
@@ -19,7 +19,7 @@
 
 // 拉取历史消息
 .getting-history {
-    @include box(5px, $shadow: $box-shadow);
+    @include box(5px, $shadow: $shadow);
     top: 65px;
     right: 15px;
 
@@ -33,7 +33,7 @@
     }
 
     > button {
-        @include button($box-padding-small);
+        @include button(5px 7px);
         padding: 8px;
         margin-left: 4px;
     }
@@ -110,7 +110,7 @@
 
 // 网络不通畅
 [aria-label='You are offline'] {
-    @include box($bg-color: $light, $shadow: $box-shadow);
+    @include box($color: $light, $shadow: $shadow);
     margin: 50vh auto 0 !important;
     transform: translateY(-50%);
 

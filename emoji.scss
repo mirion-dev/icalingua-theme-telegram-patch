@@ -9,14 +9,14 @@
     @media screen and (max-width: 1200px) {
         bottom: 58px;
         right: 15px;
-        box-shadow: $box-shadow;
+        box-shadow: $shadow;
         border-left: none;
 
         > .bg {
-            border-radius: $box-radius;
+            border-radius: $radius;
 
             > .head {
-                border-radius: $box-radius;
+                border-radius: $radius;
             }
         }
     }
@@ -138,7 +138,7 @@
                 padding: 8px;
 
                 > input {
-                    @include box(0 32px 0 20px, $box-radius-full, $search);
+                    @include box(0 32px 0 20px, $radius-full, $search);
                     @include input;
                     height: 33px;
                 }

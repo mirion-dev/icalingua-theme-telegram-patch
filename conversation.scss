@@ -39,7 +39,7 @@
         }
 
         .vac-message-card {
-            @include box($box-padding-small-alt);
+            @include box(8px 10px 3px);
 
             * {
                 @include text;
@@ -97,7 +97,7 @@
 
             // 图片
             .vac-message-image-mod {
-                border-radius: $box-radius-small;
+                border-radius: $radius-small;
                 background-color: unset !important;
 
                 .el-icon-picture-outline {
@@ -108,12 +108,12 @@
 
             // 视频
             > .vac-video-container video {
-                border-radius: $box-radius-small;
+                border-radius: $radius-small;
             }
 
             // 回复
             > .vac-reply-message {
-                @include box($box-padding-small-alt, $box-radius-small, rgba(white, .1));
+                @include box(4px 10px, $radius-small, rgba(white, .1));
                 border-left: 3px solid $theme;
                 margin: 2px 0 5px;
                 position: relative;
@@ -163,13 +163,13 @@
                 > .vac-image-tg-container {
 
                     img {
-                        border-radius: $box-radius;
+                        border-radius: $radius;
                         display: block;
                         width: 100%;
                     }
 
                     > .vac-image-tg-container__timestamp {
-                        @include box(3px 7px, $box-radius-small);
+                        @include box(3px 7px, $radius-small);
                         @include text($size: $font-size-small);
                         display: none;
                         position: absolute;
@@ -227,14 +227,14 @@
             }
 
             &#{$image-only + $hidden} {
-                padding: $box-padding-small-alt;
+                padding: 8px 10px 3px;
 
                 .vac-image-tg-container__image {
                     display: none;
                 }
 
                 .vac-image-tg-container__timestamp {
-                    @include text($text-dark-own, $size: $font-size-small);
+                    @include text($text-dark, $size: $font-size-small);
                     background-color: transparent;
                     display: block;
                     position: unset;
@@ -260,7 +260,7 @@
                         top: 0;
 
                         background-color: $msg-selected;
-                        border-radius: $box-radius;
+                        border-radius: $radius;
                         opacity: .5;
                     }
 
@@ -314,13 +314,13 @@
 .vac-icon-last-message,
 .vac-icon-scroll {
     background-color: $msg;
-    box-shadow: $box-shadow;
+    box-shadow: $shadow;
     right: 15px;
 
     > .vac-badge-counter {
         background-color: $toast-bubble;
         @include text;
-        border-radius: $box-radius;
+        border-radius: $radius;
         padding: 3px 4px;
         left: 50%;
         top: -11px;

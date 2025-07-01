@@ -1,30 +1,25 @@
 @use 'color' as *;
 
-$border: .5px solid $border;
-
-$box-padding: 10px 12px;
-$box-padding-small: 5px 7px;
-$box-padding-alt: 10px 12px 7px;
-$box-padding-small-alt: 5px 7px 3px;
-
-$box-radius: 1em;
-$box-radius-small: .5em;
-$box-radius-full: 5em;
-
-$box-shadow: 0 0 20px #0008;
-
-$font-family: 思源黑体;
+$font-family: 'Noto Sans SC';
 
 $font-size: 9.75pt;
 $font-size-small: 9pt;
 $font-size-middle: 10.5pt;
 $font-size-big: 12pt;
 
-@mixin box($padding: $box-padding, $radius: $box-radius, $bg-color: $msg, $shadow: none) {
+$border: .5px solid $border;
+$padding: 10px 12px;
+$shadow: 0 0 20px #0008;
+
+$radius: 1em;
+$radius-small: .5em;
+$radius-full: 5em;
+
+@mixin box($padding: $padding, $radius: $radius, $color: $msg, $shadow: none) {
     padding: $padding;
     border: none;
     border-radius: $radius;
-    background-color: $bg-color;
+    background-color: $color;
     box-shadow: $shadow;
 }
 
@@ -35,7 +30,7 @@ $font-size-big: 12pt;
     font-size: $size;
 }
 
-@mixin button($padding: $box-padding, $radius: $box-radius-full) {
+@mixin button($padding: $padding, $radius: $radius-full) {
     @include box($padding, $radius, $button);
     @include text;
 
@@ -110,7 +105,7 @@ $font-size-big: 12pt;
 }
 
 @mixin text-button($text) {
-    @include button(10px 15px, $box-radius-small);
+    @include button(10px 15px, $radius-small);
     background-color: transparent;
 
     &:hover {

@@ -22,4 +22,5 @@
 - [ ] `input`：支持快捷表情面板和 @ 面板。（不好调试）
 - [ ] `conversation`：被隐藏的对话头像也变暗
 - [ ] `info`, `conversation`, `input`：支持单面板模式
+- [ ] `room`：支持分组
 - [ ] 整理 `color` 和 `mixin`，日久成💩山。~~（已经是了）~~

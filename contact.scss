@@ -2,7 +2,7 @@
 @use 'mixin' as *;
 
 [aria-label='联系人'] {
-    @include box(0 0 55px, $bg-color: $light, $shadow: $box-shadow);
+    @include box(0 0 55px, $color: $light, $shadow: $shadow);
     margin: 50vh auto 0 !important;
     transform: translateY(-50%);
     max-width: 364px;
@@ -14,7 +14,7 @@
     > .el-dialog__header {
         background-color: $light;
         padding: 12px 25px;
-        border-radius: $box-radius;
+        border-radius: $radius;
 
         // 标题
         > .el-dialog__title {
