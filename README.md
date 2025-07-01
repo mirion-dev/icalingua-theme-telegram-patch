@@ -13,7 +13,7 @@
 - [ ] 尽可能将各组件做到和 Telegram 完全一致：
     - [ ] `basic`
     - [ ] `toast`（不好调试）
-    - [ ] `room`
+    - [x] `room`
     - [x] `contact`
     - [ ] `info`
     - [ ] `conversation`
@@ -21,4 +21,4 @@
     - [ ] `emoji`
 - [ ] `input`：支持快捷表情面板和 @ 面板。（不好调试）
 - [ ] `info`, `conversation`, `input`：支持单面板模式
-- [ ] 整理 `color` 和 `mixin`，~~日久成💩山~~已经是了。
+- [ ] 整理 `color` 和 `mixin`，日久成💩山。~~（已经是了）~~

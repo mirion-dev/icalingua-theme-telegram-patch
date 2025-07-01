@@ -45,8 +45,9 @@ $border: adjust(1deg, -1%, -45%);
 $icon: adjust(-2deg, -40%, -7%);
 $icon-hover: adjust(-.5deg, -45%, 20%);
 
-$room-hover: adjust(-.5deg, -20%, -35%);
 $room-bubble: adjust(-.5deg, -20%, -20%);
+$room-hover: adjust(-.5deg, -20%, -35%);
+$room-hover-bubble: adjust(.5deg, -35%, -20%);
 $room-selected: adjust(-2deg, 0%, -20%);
 $room-selected-bubble: adjust(-2deg, -4%, 10%);
 

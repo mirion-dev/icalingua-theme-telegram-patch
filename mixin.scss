@@ -16,7 +16,7 @@ $box-shadow: 0 0 20px #0008;
 $font-family: 'Noto Sans';
 
 $font-size: 9.75pt;
-$font-size-small: 8pt;
+$font-size-small: 9pt;
 $font-size-big: 12pt;
 
 @mixin box($padding: $box-padding, $radius: $box-radius, $bg-color: $msg, $shadow: none) {
