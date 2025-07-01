@@ -113,22 +113,24 @@
 
             // 回复
             > .vac-reply-message {
-                @include box($box-padding-small-alt, $box-radius-small, #fff1);
+                @include box($box-padding-small-alt, $box-radius-small, rgba(white, .1));
                 border-left: 3px solid $theme;
                 margin: 2px 0 5px;
+                position: relative;
 
                 > .vac-reply-username {
                     font-weight: bold;
                     color: $theme;
 
                     > div {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100% !important;
+                        height: 100% !important;
 
                         > svg {
-                            stroke: $icon !important;
-                        }
-
-                        &:hover > svg {
-                            stroke: $icon-hover !important;
+                            display: none;
                         }
                     }
                 }
@@ -214,11 +216,6 @@
                 * {
                     color: $text !important;
                 }
-
-                .vac-reply-username svg {
-                    display: none;
-                }
-
             }
 
             &#{$image-only + $own} {
