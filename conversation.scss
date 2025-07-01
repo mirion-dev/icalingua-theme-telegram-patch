@@ -50,6 +50,7 @@
 
                 // 群昵称
                 &:first-child {
+                    font-weight: bold;
                     filter: saturate(2);
                 }
 
@@ -118,6 +119,7 @@
                 position: relative;
 
                 > .vac-reply-username {
+                    font-weight: bold;
                     color: $theme;
 
                     > div {

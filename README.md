@@ -10,7 +10,6 @@
 
 ## TODO
 
-- [ ] 调整字号 normal + bold 为 lighter + normal。
 - [ ] 尽可能将各组件做到和 Telegram 完全一致：
     - [x] `basic`
     - [ ] `toast`（不好调试）
