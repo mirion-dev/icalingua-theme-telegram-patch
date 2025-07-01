@@ -4,6 +4,20 @@
 
 ## 安装
 
-1. 在 `sass` 环境下执行 `build.bat`
-1. 禁用 `fix-message-content-width`
-1. 重启 Icalingua++
+1. 禁用 `fix-message-content-width`。
+1. 在 `sass` 环境下执行 `build.bat`。
+1. 重启 Icalingua++。
+
+## TODO
+
+- [ ] `input`：实现快捷表情面板和 @ 面板。（不好调试）
+- [ ] 整理 `color` 和 `mixin`，日久成💩山。
+- [ ] 尽可能将各组件做到和 Telegram 完全一致：
+    - [ ] `basic`
+    - [ ] `toast`（不好调试）
+    - [ ] `room`
+    - [x] `contact`
+    - [ ] `info`
+    - [ ] `conversation`
+    - [ ] `input`
+    - [ ] `emoji`
