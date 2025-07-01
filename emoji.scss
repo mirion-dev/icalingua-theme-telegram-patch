@@ -138,16 +138,8 @@
                 > input {
                     @include box(0 32px 0 20px, $box-radius-full, $search);
                     @include text;
+                    @include placeholder;
                     height: 33px;
-
-                    &::placeholder {
-                        color: $text-dark;
-                        transition: padding-left .2s;
-                    }
-
-                    &:focus::placeholder {
-                        padding-left: 6px;
-                    }
                 }
             }
 

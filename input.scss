@@ -125,17 +125,9 @@
         // 输入框
         > .vac-textarea {
             @include text;
+            @include placeholder;
             background-color: $light;
             margin-left: 30px;
-
-            &::placeholder {
-                color: $text-dark;
-                transition: padding-left .2s;
-            }
-
-            &:focus::placeholder {
-                padding-left: 6px;
-            }
 
             // 编辑重发
             &.vac-textarea-outline {

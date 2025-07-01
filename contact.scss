@@ -52,7 +52,7 @@
 
         // 搜索栏
         .contacts-head-container {
-            background: $light;
+            background-color: $light;
 
             > .contacts-head {
                 margin-right: 0;
@@ -75,18 +75,10 @@
 
                 // 搜索框
                 .el-input__inner {
-                    background: $light;
                     @include text;
+                    @include placeholder;
+                    background-color: $light;
                     padding: 0 35px 0 32px;
-
-                    &::placeholder {
-                        color: $text-dark;
-                        transition: padding-left .2s;
-                    }
-
-                    &:focus::placeholder {
-                        padding-left: 6px;
-                    }
                 }
 
                 // 取消搜索

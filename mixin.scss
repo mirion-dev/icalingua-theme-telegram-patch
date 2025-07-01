@@ -94,3 +94,14 @@ $font-family: 'Fira Code', 'Microsoft YaHei';
         margin-right: 0;
     }
 }
+
+@mixin placeholder {
+    &::placeholder {
+        color: $text-dark;
+        transition: color .2s;
+    }
+
+    &:focus::placeholder {
+        color: $text-dark-focus;
+    }
+}
