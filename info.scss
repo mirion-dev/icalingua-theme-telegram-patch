@@ -5,29 +5,35 @@
     height: 54px;
     border-bottom: $border;
 
-    .vac-room-wrapper {
+    > .vac-room-wrapper {
         background-color: $light;
 
-        // 头像
-        .vac-room-avatar {
-            display: none;
-        }
+        > .vac-info-wrapper {
 
-        // 信息
-        .vac-text-ellipsis {
-            @include text;
-
-            .vac-room-name {
-                font-weight: bold;
+            // 头像
+            .vac-room-avatar {
+                display: none;
             }
 
-            .vac-room-info {
-                color: $text-dark;
+            // 信息
+            > .vac-text-ellipsis {
+
+                > div {
+                    @include text;
+
+                    &.vac-room-info {
+                        color: $text-dark;
+                    }
+                }
+
+                &:not(:has(> .vac-room-info)) > div {
+                    font-size: $font-size-middle;
+                }
             }
         }
 
         // 更多选项
-        .vac-room-options {
+        > .vac-room-options {
             @include icon;
             transform: scale(1.2) rotate(90deg);
 
