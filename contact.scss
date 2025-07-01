@@ -5,7 +5,7 @@
     @include box(0 0 55px, $bg-color: $light, $shadow: $box-shadow);
     margin: 50vh auto 0 !important;
     transform: translateY(-50%);
-    max-width: 360px;
+    max-width: 364px;
 
     .dialog:has(> &) {
         overflow: hidden;
@@ -13,12 +13,12 @@
 
     > .el-dialog__header {
         background-color: $light;
-        padding: 13px 25px;
+        padding: 12px 25px;
         border-radius: $box-radius;
 
         // 标题
         > .el-dialog__title {
-            @include text($weight: bold, $size: $font-size-big);
+            @include text($size: $font-size-big);
         }
 
         // 关闭按钮
@@ -42,15 +42,15 @@
         // 搜索栏
         .contacts-head-container {
             background-color: $light;
-            padding: 0 13px 2px;
+            padding: 0 15px;
 
             > .contacts-head {
                 margin-right: 0;
 
                 // 搜索图标
                 .el-input__prefix {
-                    transform: scale(-1, 1);
-                    top: 1px;
+                    transform: scale(-1.1, 1.1);
+                    top: 2px;
                     left: 0;
 
                     > .el-icon-search {
@@ -66,14 +66,15 @@
                 .el-input__inner {
                     @include input;
                     background-color: $light;
-                    padding: 0 35px 0 33px;
+                    padding: 0 35px 0 31px;
                     height: 42px;
                 }
 
                 // 取消搜索
                 .el-input__suffix .el-input__icon {
                     @include icon;
-                    margin-right: -9px;
+                    margin-right: -11px;
+                    margin-top: 1px;
 
                     &::before {
                         content: '×';
@@ -102,7 +103,7 @@
             // 类别
             .el-tabs__header {
                 position: absolute;
-                top: 6px;
+                top: 5px;
                 right: 25px;
 
                 > .el-tabs__nav-wrap {
@@ -123,7 +124,7 @@
                         }
 
                         > .el-tabs__item {
-                            @include text($text-dark, $weight: bold);
+                            @include text($text-dark);
                             transition: color .2s;
                             flex: unset;
 
@@ -146,7 +147,6 @@
                 // 好友组
                 .el-collapse-item__header {
                     background-color: $light;
-                    @include text($weight: bold);
                     height: 35px;
                     padding: 0 18px;
 
@@ -172,7 +172,7 @@
                         // 头像
                         > .contact-entry-left {
                             padding: 0;
-                            margin-top: 5px;
+                            margin-top: 4px;
 
                             > .el-avatar {
                                 height: 42px;
@@ -184,9 +184,8 @@
                         > .contact-entry-right {
                             margin-left: 10px;
 
-                            .contact-entry-name,
-                            .contact-entry-rawname {
-                                font-weight: bold;
+                            > .contact-entry-l1 {
+                                height: 20px;
                             }
 
                             .contact-entry-rawname,

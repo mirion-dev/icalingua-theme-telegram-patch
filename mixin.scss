@@ -13,11 +13,11 @@ $box-radius-full: 5em;
 
 $box-shadow: 0 0 20px #0008;
 
-$font-size: 9.5pt;
+$font-family: 'Noto Sans';
+
+$font-size: 9.75pt;
 $font-size-small: 8pt;
 $font-size-big: 12pt;
-
-$font-family: 'Fira Code', 'Microsoft YaHei';
 
 @mixin box($padding: $box-padding, $radius: $box-radius, $bg-color: $msg, $shadow: none) {
     padding: $padding;
@@ -36,7 +36,7 @@ $font-family: 'Fira Code', 'Microsoft YaHei';
 
 @mixin button($padding: $box-padding, $radius: $box-radius-full) {
     @include box($padding, $radius, $button);
-    @include text($weight: bold);
+    @include text;
 
     &:hover {
         background-color: $button-hover;
@@ -45,7 +45,7 @@ $font-family: 'Fira Code', 'Microsoft YaHei';
 
 @mixin info-box {
     @include box(2px 10px);
-    @include text($weight: bold);
+    @include text;
     width: fit-content;
 }
 
@@ -80,7 +80,7 @@ $font-family: 'Fira Code', 'Microsoft YaHei';
 }
 
 @mixin tab($selected: '.selected') {
-    @include text($text-dark, $weight: bold);
+    @include text($text-dark);
     padding-bottom: 10px;
     margin-right: 15px;
     transition: color .2s, border-bottom .2s;
@@ -123,7 +123,7 @@ $font-family: 'Fira Code', 'Microsoft YaHei';
 
     &::after {
         content: $text;
-        @include text($theme, $weight: bold);
+        @include text($theme);
         display: block;
         line-height: 1.1;
     }
