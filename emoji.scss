@@ -82,7 +82,7 @@
             padding: 0 8px;
 
             > .subheader {
-                @include text($text-dark, $weight: bold);
+                @include text($text-dark);
                 margin-left: 0;
 
                 &:first-child {

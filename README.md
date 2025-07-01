@@ -10,6 +10,7 @@
 
 ## TODO
 
+- [ ] 调整字号 normal + bold 为 lighter + normal。
 - [ ] 尽可能将各组件做到和 Telegram 完全一致：
     - [x] `basic`
     - [ ] `toast`（不好调试）
@@ -20,5 +21,6 @@
     - [ ] `input`
     - [ ] `emoji`
 - [ ] `input`：支持快捷表情面板和 @ 面板。（不好调试）
+- [ ] `conversation`：被隐藏的对话头像也变暗
 - [ ] `info`, `conversation`, `input`：支持单面板模式
 - [ ] 整理 `color` 和 `mixin`，日久成💩山。~~（已经是了）~~

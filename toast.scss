@@ -51,7 +51,7 @@
         margin: 0 12px;
 
         > .el-notification__title {
-            @include text($weight: bold);
+            @include text;
         }
 
         > .el-notification__content {
@@ -122,7 +122,7 @@
     }
 
     > .el-dialog__title {
-        @include text($weight: bold);
+        @include text;
     }
 
     > .el-dialog__body {

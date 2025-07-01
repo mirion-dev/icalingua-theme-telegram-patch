@@ -28,11 +28,11 @@ $font-size-big: 12pt;
     box-shadow: $shadow;
 }
 
-@mixin text($color: $text, $style: normal, $weight: normal, $size: $font-size) {
+@mixin text($color: $text, $style: normal, $size: $font-size) {
     color: $color;
     font-style: $style;
-    font-weight: $weight;
     font-size: $size;
+    font-weight: normal;
 }
 
 @mixin button($padding: $box-padding, $radius: $box-radius-full) {
