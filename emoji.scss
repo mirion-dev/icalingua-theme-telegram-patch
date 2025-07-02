@@ -15,7 +15,8 @@
         > .bg {
             border-radius: $radius;
 
-            > .head {
+            > .head,
+            #Categories {
                 border-radius: $radius;
             }
         }
@@ -27,26 +28,43 @@
         // 无表情
         .empty {
             @include text($text-dark);
+            padding: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
 
             > button {
                 @include button;
-                display: block;
-                margin: 10px auto;
             }
         }
 
         // 类别
         > .head {
             background-color: $light;
-            min-height: 40px;
-            max-height: 40px;
-            padding-bottom: 10px;
+            min-height: 35px;
+            max-height: 35px;
+            padding-bottom: 7px;
+            border-bottom: $border;
 
             > .title {
                 text-align: center;
 
                 > a {
-                    @include tab;
+                    @include text($text-dark);
+                    padding-bottom: 10px;
+                    margin-right: 15px;
+                    transition: color .2s, border-bottom .2s;
+
+                    &.selected {
+                        color: $theme;
+                        border-bottom: 3px solid $theme;
+                    }
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
                 }
             }
 
@@ -69,21 +87,31 @@
         > .stickers_dir {
             background-color: $light;
             justify-content: center;
+            margin: 8px 0;
 
             a {
-                @include tab;
+                @include text($text-dark);
+                transition: color .2s;
+
+                &.selected {
+                    color: $theme;
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                }
             }
         }
 
         // 表情包
         > .face-panel,
         > .face-panel + .panel {
-            margin-bottom: 8px;
-            padding: 0 8px;
+            padding: 0;
+            margin: 8px;
 
             > .subheader {
                 @include text($text-dark);
-                margin-left: 0;
+                margin-left: 7px;
 
                 &:first-child {
                     margin-top: 0;
@@ -91,11 +119,21 @@
             }
 
             > .grid {
-                gap: 8px;
                 margin: 0;
 
-                img {
+                > div {
                     background-color: $light;
+
+                    > img {
+                        background-color: $light;
+                        border: none;
+                        padding: 4px;
+                        border-radius: $radius-small;
+
+                        &:hover {
+                            background-color: $room-hover;
+                        }
+                    }
                 }
             }
 
@@ -105,56 +143,86 @@
         }
 
         > .face-panel > .grid {
-            grid-template-columns: repeat(9, 1fr);
+            grid-template-columns: repeat(8, 1fr);
+
+            img {
+                width: 34px;
+                height: 34px;
+            }
         }
 
         > .face-panel + .panel > .grid {
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(4, 1fr);
+
+            img {
+                width: 75px;
+                height: 75px;
+            }
         }
 
         // Emoji
         > .emoji-panel {
-            margin-bottom: 8px;
+            margin: 8px 8px 36px;
+
+            // 类别
+            @at-root #Categories {
+                background-color: $light;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                padding: 4px 0;
+            }
 
             .category {
+                padding: 0;
                 filter: none;
-                transition: color .2s, border-bottom .2s;
+                border-bottom: none;
 
                 svg {
-                    fill: $text-dark;
+                    display: block;
+                    fill: $icon;
+                    width: 18px;
+                    height: 18px;
+                    padding: 5px;
+                    border-radius: $radius-small;
                 }
 
-                &.active {
-                    border-bottom-color: $theme;
-
-                    svg {
-                        fill: $theme;
-                    }
+                &.active svg {
+                    fill: $icon-hover;
+                    background-color: $room-hover;
                 }
             }
 
+            // 搜索框
             .container-search {
-                margin: 0;
-                padding: 8px;
+                margin: 2px 0;
+                padding: 0;
 
                 > input {
-                    @include box(0 32px 0 20px, $radius-full, $search);
+                    @include box(0 20px 3px, $radius-full, $search);
                     @include input;
                     height: 33px;
                 }
             }
 
+            // 网格
             .container-emoji {
-                padding: 0 8px;
+                margin: 5px 0;
 
                 > .grid-emojis {
-                    grid-template-columns: repeat(9, 1fr) !important;
+                    grid-template-columns: repeat(8, 1fr) !important;
                     margin: 0;
 
                     > .emoji {
                         font-size: 22px !important;
-                        height: auto !important;
-                        width: auto !important;
+                        height: 32px !important;
+                        width: 32px !important;
+                        padding: 0;
+
+                        &:hover {
+                            transform: none;
+                            background-color: $room-hover;
+                        }
                     }
                 }
 
