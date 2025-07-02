@@ -27,7 +27,7 @@
 
             .vac-reply-username {
                 margin-bottom: 0;
-                font-weight: bold;
+                font-weight: $bold;
                 color: $theme;
             }
 
@@ -84,7 +84,7 @@
 
             &::after {
                 content: '取消';
-                @include text($theme, $weight: bold);
+                @include text($theme);
                 white-space: nowrap;
                 pointer-events: none;
 

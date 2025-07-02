@@ -38,8 +38,10 @@
             height: 32px;
         }
 
+        $card-padding: 6px 10px 4px;
+
         .vac-message-card {
-            @include box(8px 10px 3px);
+            @include box($card-padding);
 
             * {
                 @include text;
@@ -50,7 +52,7 @@
 
                 // 群昵称
                 &:first-child {
-                    font-weight: bold;
+                    font-weight: $bold;
                     filter: saturate(2);
                 }
 
@@ -63,7 +65,7 @@
 
             // 消息发出时间
             > .vac-text-timestamp > span {
-                @include text($text-dark, $size: $font-size-small);
+                @include text($text-dark);
             }
 
             // 链接、@、转发
@@ -119,7 +121,7 @@
                 position: relative;
 
                 > .vac-reply-username {
-                    font-weight: bold;
+                    font-weight: $bold;
                     color: $theme;
 
                     > div {
@@ -227,7 +229,7 @@
             }
 
             &#{$image-only + $hidden} {
-                padding: 8px 10px 3px;
+                padding: $card-padding;
 
                 .vac-image-tg-container__image {
                     display: none;
