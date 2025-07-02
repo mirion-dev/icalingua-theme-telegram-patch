@@ -65,33 +65,16 @@
 
         // 取消转发
         > .vac-icon-forward {
-            position: relative;
-            margin: -2px 10px 0;
+            margin: -1px 10px 0;
 
             > .vac-svg-button {
-                @include button($padding, $radius-small);
-                background-color: transparent;
-                transition: background-color;
+                @include text-button('取消');
+                transform: none;
+                opacity: 1;
 
-                &:hover {
-                    background-color: rgba($theme, .1);
-                }
-
-                #vac-icon-close-outline {
+                > svg {
                     display: none;
                 }
-            }
-
-            &::after {
-                content: '取消';
-                @include text($theme);
-                white-space: nowrap;
-                pointer-events: none;
-
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
             }
         }
 
@@ -101,7 +84,7 @@
             background-color: $light;
             box-shadow: none;
             top: 16px;
-            right: 60px;
+            right: 75px;
             padding: 10px 3px;
         }
     }
