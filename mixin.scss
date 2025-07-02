@@ -59,6 +59,7 @@ $radius-full: 5em;
 @mixin svg-icon($element, $fill: $icon, $fill-hover: $icon-hover) {
     transform: none;
     transition: none;
+    opacity: 1;
 
     #{$element} {
         fill: $fill;

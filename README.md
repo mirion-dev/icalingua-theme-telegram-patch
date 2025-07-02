@@ -17,7 +17,7 @@
     - [x] `contact`
     - [x] `info`
     - [x] `conversation`
-    - [ ] `input`
+    - [x] `input`
     - [ ] `emoji`
 - [ ] `input`：支持快捷表情面板和 @ 面板。（不好调试）
 - [ ] `info`, `conversation`, `input`：支持单面板模式

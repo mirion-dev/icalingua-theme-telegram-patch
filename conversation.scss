@@ -101,10 +101,6 @@
                 > .vac-icon-file {
                     @include svg-icon('#vac-icon-document', $theme, $theme);
 
-                    &:hover {
-                        opacity: 1;
-                    }
-
                     > svg {
                         margin: 0;
                     }

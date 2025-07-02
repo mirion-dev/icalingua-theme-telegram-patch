@@ -8,7 +8,7 @@
     // 要回复的消息
     > .vac-reply-container {
         background-color: $light;
-        padding: 8px 12px;
+        padding: 8px 15px;
 
         // 消息卡
         > .vac-reply-box {
@@ -43,7 +43,7 @@
         // 取消回复
         .vac-svg-button {
             @include svg-icon('#vac-icon-close-outline');
-            margin-right: 7px;
+            margin-right: 10px;
         }
     }
 
@@ -53,6 +53,7 @@
         padding: 0;
         width: 100%;
         height: 54px;
+        transform: none;
 
         position: absolute;
         top: 0;
@@ -69,6 +70,7 @@
 
             > .vac-svg-button {
                 @include text-button('取消');
+                padding: 10px;
                 transform: none;
                 opacity: 1;
 
@@ -84,7 +86,7 @@
             background-color: $light;
             box-shadow: none;
             top: 16px;
-            right: 75px;
+            right: 65px;
             padding: 10px 3px;
         }
     }
@@ -109,8 +111,7 @@
         > .vac-textarea {
             @include input;
             background-color: $light;
-            min-height: 24px !important;
-            margin-left: 38px;
+            margin: 0 0 4px 38px;
             padding: 11px 12px;
 
             // 编辑重发
@@ -123,7 +124,8 @@
         // 文件
         > .vac-file-container {
             background-color: transparent;
-            margin-left: 40px;
+            margin-left: 50px;
+            padding: 13px 0;
 
             > .vac-icon-file-room {
                 margin-left: 0;
@@ -135,6 +137,7 @@
 
             > .vac-file-message-room {
                 @include text;
+                padding-bottom: 2px;
             }
 
             > .vac-icon-remove {
@@ -144,7 +147,7 @@
 
         // 媒体
         > .vac-media-container {
-            margin: -6px 0 0 24px;
+            margin: -5px 0 0 28px;
 
             > .vac-svg-button {
                 @include svg-icon('#vac-icon-close-image');
@@ -154,11 +157,15 @@
         // 按钮
         > .vac-icon-textarea {
             margin: 0;
-            padding: 0 5px 11px 0;
+            padding: 0 3px 12px 0;
 
             // 无法发送
             > .vac-send-disabled {
                 display: none;
+            }
+
+            svg {
+                margin: 0 10px;
             }
 
             .vac-svg-button {
