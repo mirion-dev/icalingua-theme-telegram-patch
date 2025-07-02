@@ -12,7 +12,7 @@
 
 - [ ] 尽可能将各组件做到和 Telegram 完全一致：
     - [x] `basic`
-    - [ ] `toast`（不好调试）
+    - [ ] ~~`toast`~~（不好调试）
     - [x] `room`
     - [x] `contact`
     - [x] `info`
