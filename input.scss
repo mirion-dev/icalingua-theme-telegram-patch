@@ -126,7 +126,9 @@
         > .vac-textarea {
             @include input;
             background-color: $light;
-            margin-left: 30px;
+            min-height: 24px !important;
+            margin-left: 38px;
+            padding: 11px 12px;
 
             // 编辑重发
             &.vac-textarea-outline {
@@ -184,7 +186,7 @@
                     @include svg-icon('#vac-icon-paperclip');
                     transform: rotate(-135deg) scaleX(1.25);
                     position: absolute;
-                    left: 10px;
+                    left: 12px;
                     bottom: 11px;
 
                     > svg {
