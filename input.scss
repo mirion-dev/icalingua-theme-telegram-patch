@@ -217,6 +217,7 @@
         display: block;
         border: none;
         padding: 10px 20px;
+        transition: none;
 
         &:hover {
             background-color: $room-hover;
