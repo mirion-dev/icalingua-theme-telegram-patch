@@ -191,6 +191,8 @@
                         border-radius: $radius;
                         display: block;
                         width: 100%;
+                        max-width: 250px;
+                        max-height: 250px;
                     }
 
                     > .vac-image-tg-container__timestamp {
