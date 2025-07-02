@@ -270,7 +270,7 @@
                 }
             }
 
-            &#{$image-only + $hidden} {
+            &#{$image-only + $hidden}:not(:has(> .vac-image-container)) {
                 padding: $card-padding;
 
                 .vac-image-tg-container__image {
