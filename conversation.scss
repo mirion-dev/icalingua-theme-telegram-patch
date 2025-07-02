@@ -27,21 +27,35 @@
     // 信息卡
     .vac-card-info {
         @include info-box;
+        line-height: 1.4;
+        padding: 2px 11px 4px;
     }
 
     // 消息卡
     .vac-message-box {
+        $card-padding: 6px 10px 4px;
+
+        $image-only: ':has(> .vac-image-tg-container)';
+        $own: '.vac-message-current';
+        $hidden: '.vac-message-deleted';
+        $selected: '.vac-message-selected';
 
         // 头像
-        .el-avatar {
-            width: 32px;
-            height: 32px;
-        }
+        > .vac-message-sender-avatar {
 
-        $card-padding: 6px 10px 4px;
+            > .el-avatar {
+                width: 32px;
+                height: 32px;
+            }
+
+            &:has(+ .vac-message-container > #{$hidden}) > .el-avatar {
+                filter: brightness(.7);
+            }
+        }
 
         .vac-message-card {
             @include box($card-padding);
+            transition: none;
 
             * {
                 @include text;
@@ -82,10 +96,14 @@
             > .vac-file-message {
                 display: inline-block;
                 vertical-align: middle;
-                margin: 0;
+                margin: 0 0 0 -3px;
 
                 > .vac-icon-file {
-                    @include svg-icon('#vac-icon-document', $base, $theme);
+                    @include svg-icon('#vac-icon-document', $theme, $theme);
+
+                    &:hover {
+                        opacity: 1;
+                    }
 
                     > svg {
                         margin: 0;
@@ -109,13 +127,18 @@
             }
 
             // 视频
-            > .vac-video-container video {
-                border-radius: $radius-small;
+            > .vac-video-container {
+                position: relative;
+
+                video {
+                    display: block;
+                    border-radius: $radius-small;
+                }
             }
 
             // 回复
             > .vac-reply-message {
-                @include box(4px 10px, $radius-small, rgba(white, .1));
+                @include box(4px 8px, $radius-small, rgba(white, .1));
                 border-left: 3px solid $theme;
                 margin: 2px 0 5px;
                 position: relative;
@@ -137,22 +160,21 @@
                     }
                 }
 
-                .image-slot {
-                    height: 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
+                .vac-message-image-reply {
+                    border-radius: $radius-small;
 
-                    > .el-icon-picture-outline {
-                        color: $text-dark;
+                    > .image-slot {
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        > .el-icon-picture-outline {
+                            color: $text-dark;
+                        }
                     }
                 }
             }
-
-            $image-only: ':has(> .vac-image-tg-container)';
-            $own: '.vac-message-current';
-            $hidden: '.vac-message-deleted';
-            $selected: '.vac-message-selected';
 
             &#{$image-only} {
                 padding: 0;
@@ -163,6 +185,7 @@
                 }
 
                 > .vac-image-tg-container {
+                    position: relative;
 
                     img {
                         border-radius: $radius;
@@ -171,12 +194,12 @@
                     }
 
                     > .vac-image-tg-container__timestamp {
-                        @include box(3px 7px, $radius-small);
-                        @include text($size: $font-size-small);
+                        @include box(0 8px 3px, $radius-small);
+                        @include text;
                         display: none;
                         position: absolute;
-                        left: calc(100% - 4px);
-                        bottom: 3px;
+                        left: calc(100% + 6px);
+                        bottom: 0;
                     }
 
                     &:hover > .vac-image-tg-container__timestamp {
@@ -218,13 +241,32 @@
                 * {
                     color: $text !important;
                 }
+
+                .vac-message-image-mod::after,
+                .vac-message-image-reply:not(:has(.image-slot))::after,
+                .vac-image-tg-container__image::after,
+                .vac-video-container::after {
+                    content: '';
+                    pointer-events: none;
+
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+
+                    position: absolute;
+                    top: 0;
+
+                    background-color: $msg-selected;
+                    border-radius: $radius-small;
+                    opacity: .5;
+                }
             }
 
             &#{$image-only + $own} {
 
                 .vac-image-tg-container__timestamp {
                     left: unset;
-                    right: calc(100% - 4px);
+                    right: calc(100% + 6px);
                 }
             }
 
@@ -236,7 +278,7 @@
                 }
 
                 .vac-image-tg-container__timestamp {
-                    @include text($text-dark, $size: $font-size-small);
+                    @include text($text-dark);
                     background-color: transparent;
                     display: block;
                     position: unset;
@@ -247,30 +289,8 @@
 
             &#{$image-only + $selected} {
 
-                > .vac-image-tg-container {
-                    position: relative;
-
-                    > .vac-image-tg-container__image::after {
-                        content: '';
-                        pointer-events: none;
-
-                        display: block;
-                        width: 100%;
-                        height: 100%;
-
-                        position: absolute;
-                        top: 0;
-
-                        background-color: $msg-selected;
-                        border-radius: $radius;
-                        opacity: .5;
-                    }
-
-                    > .vac-image-tg-container__timestamp {
-                        background-color: $msg-selected;
-                        left: calc(100% + 6px);
-                        bottom: 1px;
-                    }
+                .vac-image-tg-container__timestamp {
+                    background-color: $msg-selected;
                 }
             }
 
@@ -300,11 +320,10 @@
                 }
             }
 
-            &#{$image-only + $own + $selected} {
+            &#{$image-only + $own + $hidden} {
 
                 .vac-image-tg-container__timestamp {
-                    left: unset;
-                    right: calc(100% + 6px);
+                    color: $text-dark-own;
                 }
             }
         }
@@ -323,7 +342,7 @@
         background-color: $toast-bubble;
         @include text;
         border-radius: $radius;
-        padding: 3px 4px;
+        padding: 3px 5px 6px;
         left: 50%;
         top: -11px;
         transform: translateX(-50%);
