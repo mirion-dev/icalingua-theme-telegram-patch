@@ -134,8 +134,8 @@
 
             // 回复
             > .vac-reply-message {
-                @include box(4px 8px, $radius-small, rgba(white, .1));
-                border-left: 3px solid $theme;
+                @include box(4px 8px 4px 11px, $radius-small);
+                background: linear-gradient(90deg, $theme 3px, rgba(white, .1) 0);
                 margin: 2px 0 5px;
                 position: relative;
 
