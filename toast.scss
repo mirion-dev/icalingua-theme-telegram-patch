@@ -67,7 +67,7 @@
     }
 }
 
-// 文件上传进度条
+// 文件上传/下载进度条
 .el-notification-progress {
     top: 15px !important;
     right: 15px;
@@ -82,7 +82,7 @@
                 @include text($text !important);
 
                 .el-progress-bar {
-                    margin: 5px 0 7px;
+                    margin: 10px 0 7px;
 
                     > .el-progress-bar__outer {
                         background-color: $search !important;
@@ -93,6 +93,7 @@
 
                             > .el-progress-bar__innerText {
                                 @include text($search !important, $size: $font-size-small);
+                                vertical-align: unset;
                             }
                         }
                     }
