@@ -6,8 +6,7 @@ html[theme='dark'] {
     @include meta.load-css('toast');
 
     @include meta.load-css('room');
-    @include meta.load-css('contact');
-    @include meta.load-css('member');
+    @include meta.load-css('list');
 
     @include meta.load-css('info');
     @include meta.load-css('conversation');
