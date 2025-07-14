@@ -207,6 +207,7 @@
 [role='tooltip']:has(> button) {
     @include box(5px 0, $color: $light, $shadow: $shadow);
     min-width: 0;
+    overflow: hidden;
 
     > :not([class]) {
         display: none;
@@ -216,6 +217,7 @@
         @include text;
         display: block;
         border: none;
+        border-radius: 0;
         padding: 10px 20px;
         transition: none;
 
