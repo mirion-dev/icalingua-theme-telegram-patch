@@ -137,6 +137,10 @@
         &.is-loading {
             background-color: $button-hover;
         }
+
+        &::before {
+            display: none;
+        }
     }
 
 }
